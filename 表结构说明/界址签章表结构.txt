@@ -1,0 +1,51 @@
+"CREATE TABLE D_ZDX " +
+"(DJH char(17) ," + //地籍号
+"MBBSM Int ," + //排序号
+"QDH Int ," + //起点号
+"ZJDH Int ," + //中间点号
+"ZDH Int ," + //终点号
+"LZDDJH char(30) ," + //邻宗地地籍号
+"LZDZJRXM char(30) ," + //邻宗地指界人姓名
+"BZDZJRXM char(30) ," + //本宗地指界人姓名
+"ZJRQ char(14) ," + //指界日期
+"BZ char(50) )"  //备注
+///////////////////////////新增///////////////////////////
+///////////////////////////新增///////////////////////////
+"insert into D_ZDX("
++"DJH,MBBSM,QDH,ZJDH,ZDH,LZDDJH,LZDZJRXM,BZDZJRXM,ZJRQ,BZ)"
++ " values "  
+"(@DJH,@MBBSM,@QDH,@ZJDH,@ZDH,@LZDDJH,@LZDZJRXM,@BZDZJRXM,@ZJRQ,@BZ)"
+dataAdpater.InsertCommand.Parameters.Add("@DJH", SqlDbType.Char, 17, "DJH");
+dataAdpater.InsertCommand.Parameters.Add("@MBBSM", SqlDbType.Int, 4, "MBBSM");
+dataAdpater.InsertCommand.Parameters.Add("@QDH", SqlDbType.Int, 4, "QDH");
+dataAdpater.InsertCommand.Parameters.Add("@ZJDH", SqlDbType.Int, 4, "ZJDH");
+dataAdpater.InsertCommand.Parameters.Add("@ZDH", SqlDbType.Int, 4, "ZDH");
+dataAdpater.InsertCommand.Parameters.Add("@LZDDJH", SqlDbType.Char, 30, "LZDDJH");
+dataAdpater.InsertCommand.Parameters.Add("@LZDZJRXM", SqlDbType.Char, 30, "LZDZJRXM");
+dataAdpater.InsertCommand.Parameters.Add("@BZDZJRXM", SqlDbType.Char, 30, "BZDZJRXM");
+dataAdpater.InsertCommand.Parameters.Add("@ZJRQ", SqlDbType.Char, 14, "ZJRQ");
+dataAdpater.InsertCommand.Parameters.Add("@BZ", SqlDbType.Char, 50, "BZ");
+/////////////////////修改/////////////////////
+/////////////////////修改/////////////////////
+"UPDATE D_ZDX SET "
++ "DJH = @DJH "
++ ", MBBSM = @MBBSM "
++ ", QDH = @QDH "
++ ", ZJDH = @ZJDH "
++ ", ZDH = @ZDH "
++ ", LZDDJH = @LZDDJH "
++ ", LZDZJRXM = @LZDZJRXM "
++ ", BZDZJRXM = @BZDZJRXM "
++ ", ZJRQ = @ZJRQ "
++ ", BZ = @BZ "
++ " WHERE  "/////////////////////修改2/////////////////////
+dataAdpater.UpdateCommand.Parameters.Add("@DJH", SqlDbType.Char, 17, "DJH");
+dataAdpater.UpdateCommand.Parameters.Add("@MBBSM", SqlDbType.Int, 4, "MBBSM");
+dataAdpater.UpdateCommand.Parameters.Add("@QDH", SqlDbType.Int, 4, "QDH");
+dataAdpater.UpdateCommand.Parameters.Add("@ZJDH", SqlDbType.Int, 4, "ZJDH");
+dataAdpater.UpdateCommand.Parameters.Add("@ZDH", SqlDbType.Int, 4, "ZDH");
+dataAdpater.UpdateCommand.Parameters.Add("@LZDDJH", SqlDbType.Char, 30, "LZDDJH");
+dataAdpater.UpdateCommand.Parameters.Add("@LZDZJRXM", SqlDbType.Char, 30, "LZDZJRXM");
+dataAdpater.UpdateCommand.Parameters.Add("@BZDZJRXM", SqlDbType.Char, 30, "BZDZJRXM");
+dataAdpater.UpdateCommand.Parameters.Add("@ZJRQ", SqlDbType.Char, 14, "ZJRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@BZ", SqlDbType.Char, 50, "BZ");

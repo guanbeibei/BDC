@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD4F7165-FC3C-452D-8145-4E62D4369EE5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NCZJDDJFZ</RootNamespace>
+    <AssemblyName>BDCDCGJ</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NEW;Win32</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>TRACE;NEW;Win32</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NEW;Win32</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\..\..\..\..\..\..\Program Files\不动产调查基础应用软件\BDCDCGJ.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>TRACE;NEW;Win32</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\BDCDCGJ.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Old_Win32|AnyCPU'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Old_Win32|x64'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Old_Win32|x86'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Old_Win64|AnyCPU'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Old_Win64|x64'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Old_Win64|x86'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_New_Win64|AnyCPU'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_New_Win64|x64'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_New_Win64|x86'">
+    <OutputPath>..\Output\new_win32\</OutputPath>
+    <DefineConstants>NEW;Win32</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="acdbmgd, Version=18.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\x86\acdbmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="acmgd, Version=18.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\x86\acmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BruTile, Version=0.7.4.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\BruTile.dll</HintPath>
+    </Reference>
+    <Reference Include="BruTile.Desktop, Version=0.7.4.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\BruTile.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net1213, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Common.Logging.Log4Net1213.dll</HintPath>
+    </Reference>
+    <Reference Include="FlexCell, Version=4.3.5.0, Culture=neutral, PublicKeyToken=6f86587eb70ee309, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="JiHeJiSuanTool">
+      <HintPath>Dll\JiHeJiSuanTool.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedMapApi, Version=15.0.53.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\x86\ManagedMapApi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NetTopologySuite, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO">
+      <HintPath>Dll\NetTopologySuite.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools">
+      <HintPath>Dll\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile">
+      <HintPath>Dll\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended">
+      <HintPath>Dll\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>Dll\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.DDF">
+      <HintPath>Dll\NPOI.DDF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HPSF">
+      <HintPath>Dll\NPOI.HPSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HSSF">
+      <HintPath>Dll\NPOI.HSSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.POIFS">
+      <HintPath>Dll\NPOI.POIFS.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="ProjNet">
+      <HintPath>Dll\ProjNet.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.2.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.2.9\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReadOrWriteXML">
+      <HintPath>Dll\ReadOrWriteXML.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpMap, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\SharpMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server Compact Edition\v3.5\Desktop\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Topology">
+      <HintPath>Dll\Topology.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analysing\Overlay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Analysing\Overlay.Designer.cs">
+      <DependentUpon>Overlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ATT.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DataDic\DataDic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataDic\DataDic.designer.cs">
+      <DependentUpon>DataDic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\JZD.cs" />
+    <Compile Include="DCB\Date.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\Date.Designer.cs">
+      <DependentUpon>Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\DCB_JBB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DCB\DCB_JBB.Designer.cs">
+      <DependentUpon>DCB_JBB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\FWDC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DCB\FWDC.Designer.cs">
+      <DependentUpon>FWDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\SBB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\SBB.Designer.cs">
+      <DependentUpon>SBB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\SHBPZ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\SHBPZ.Designer.cs">
+      <DependentUpon>SHBPZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\SPB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\SPB.Designer.cs">
+      <DependentUpon>SPB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\SQDJLR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\SQDJLR.Designer.cs">
+      <DependentUpon>SQDJLR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\TDZS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\TDZS.Designer.cs">
+      <DependentUpon>TDZS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\ZDRK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\ZDRK.Designer.cs">
+      <DependentUpon>ZDRK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\ZDY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DCB\ZDY.Designer.cs">
+      <DependentUpon>ZDY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiJitools\CWXX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DiJitools\CWXX.Designer.cs">
+      <DependentUpon>CWXX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DCB\Dijicltools.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DCB\Dijicltools.Designer.cs">
+      <DependentUpon>Dijicltools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOC\NT158APP_NEW.cs" />
+    <Compile Include="DOC\NT158APP_OLD.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SysTemSet\XTSZ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysTemSet\XTSZ.Designer.cs">
+      <DependentUpon>XTSZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\CADTools.cs" />
+    <Compile Include="Tools\DataBasic.cs" />
+    <Compile Include="Tools\DataBasicString.cs" />
+    <Compile Include="Tools\dyzdt.cs" />
+    <Compile Include="Tools\ExportTools.cs" />
+    <Compile Include="Tools\FYGZ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FYGZ.Designer.cs">
+      <DependentUpon>FYGZ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\HelperFunctions.cs" />
+    <Compile Include="Tools\Tools.cs" />
+    <Compile Include="Tools\Uitl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Analysing\Overlay.resx">
+      <DependentUpon>Overlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataDic\DataDic.resx">
+      <DependentUpon>DataDic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\Date.resx">
+      <DependentUpon>Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\DCB_JBB.resx">
+      <DependentUpon>DCB_JBB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\FWDC.resx">
+      <DependentUpon>FWDC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\SBB.resx">
+      <DependentUpon>SBB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\SHBPZ.resx">
+      <DependentUpon>SHBPZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\SPB.resx">
+      <DependentUpon>SPB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\SQDJLR.resx">
+      <DependentUpon>SQDJLR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\TDZS.resx">
+      <DependentUpon>TDZS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\ZDRK.resx">
+      <DependentUpon>ZDRK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\ZDY.resx">
+      <DependentUpon>ZDY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiJitools\CWXX.resx">
+      <DependentUpon>CWXX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DCB\Dijicltools.resx">
+      <DependentUpon>Dijicltools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysTemSet\XTSZ.resx">
+      <DependentUpon>XTSZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\FYGZ.resx">
+      <DependentUpon>FYGZ.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,733 @@
+"CREATE TABLE DCB " +
+"(DJH char(17) ," + //地籍号
+"WZDJH char(19) ," + //完整地籍号
+"SFTXSBB bit ," + //是否填写申报表
+"Xmax float ," + //X最大坐标
+"Xmin float ," + //X最小坐标
+"Ymax float ," + //Y最大坐标
+"Ymin float ," + //Y最小坐标
+"JZXJB char(20) ," + //界址线句柄
+"SQSBH char(11) ," + //申请书编号
+"QLR char(60) ," + //权利人
+"SQRLX char(20) ," + //第一申请人类型（权利人）
+"QLR_ZJZL char(20) ," + //权利人证件种类
+"QLR_ZJBH char(20) ," + //权利人证件编号
+"DWXZ char(14) ," + //单位性质
+"FRDBXM char(30) ," + //法人代表姓名
+"TXDZ nvarchar(100) ," + //通信地址
+"YZBM char(6) ," + //邮政编码
+"DZYJ char(40) ," + //电子邮件
+"LXR char(60) ," + //联系人
+"LXDH char(15) ," + //联系电话
+"SQS_DLRXM char(60) ," + //申请书代理人姓名
+"ZYZGZSH char(20) ," + //职业资格证书号
+"DLJGMC char(60) ," + //代理机构名称
+"DLJGDH char(15) ," + //代理机构电话
+"SQRQ char(14) ," + //申请日期
+"QLR2 char(60) ," + //第二申请人
+"SQRLX2 char(20) ," + //第二申请人类型（权利人）
+"QLR_ZJZL2 char(20) ," + //第二申请人证件种类
+"QLR_ZJBH2 char(20) ," + //第二申请人证件编号
+"DWXZ2 char(14) ," + //第二申请人单位性质
+"FRDBXM2 char(30) ," + //第二申请人法人代表姓名
+"TXDZ2 nvarchar(100) ," + //第二申请人通信地址
+"YZBM2 char(6) ," + //第二申请人邮政编码
+"DZYJ2 char(40) ," + //第二申请人电子邮件
+"LXR2 char(60) ," + //第二申请人联系人
+"LXDH2 char(15) ," + //第二申请人联系电话
+"SQS_DLRXM2 char(60) ," + //第二申请人申请书代理人姓名
+"ZYZGZSH2 char(20) ," + //第二申请人职业资格证书号
+"DLJGMC2 char(60) ," + //第二申请人代理机构名称
+"DLJGDH2 char(15) ," + //第二申请人代理机构电话
+"TDZL nvarchar(100) ," + //土地坐落
+"ZDMJ float ," + //宗地面积
+"SJYT char(20) ," + //实际用途
+"QSXZ char(30) ," + //权属性质
+"DLBM char(3) ," + //地类编码
+"SYQLX char(20) ," + //使用权类型
+"QLSLQJ char(4) ," + //权利设立情况
+"XYDZL nvarchar(100) ," + //需役地坐落
+"TDJG float ," + //土地价格
+"TDDYMJ float ," + //土地抵押面积
+"DYSX char(20) ," + //抵押顺序
+"TDDYJE float ," + //土地抵押金额
+"DYQX_Q char(14) ," + //抵押期限(起）
+"DYQX_Z char(14) ," + //抵押期限(止）
+"SQDJLR nvarchar(500) ," + //申请登记的内容
+"SQSBZ nvarchar(100) ," + //申请书备注
+"DYSQRJZRQ char(14) ," + //第一申请人签章日期
+"DESQRJZRQ char(14) ," + //第二申请人签章日期
+"DCBRQ char(14) ," + //调查表日期
+"FRDBZJBH char(20) ," + //法人代表证件编号
+"FRDBZJZL char(20) ," + //法人代表证件种类
+"FRDBDH char(15) ," + //法人代表电话
+"JBB_DLRXM char(30) ," + //基本表代理人姓名
+"JBB_DLRZJBH char(20) ," + //基本表代理人证件编号
+"JBB_DLRZJZL char(20) ," + //基本表代理人证件种类
+"JBB_DLRDH char(15) ," + //基本表代理人电话
+"GMJJHYDM char(4) ," + //国民经济行业代码
+"YBZDDM char(19) ," + //预编宗地代码
+"TFH char(20) ," + //图幅号
+"PZYT char(20) ," + //批准用途
+"PZYT_DLDM char(3) ," + //地类代码(批准用途)
+"JZZDMJ float ," + //建筑占地面积
+"JZMJ float ," + //建筑面积
+"SYQX_Q char(14) ," + //使用期限(起）
+"SYQX_Z char(14) ," + //使用期限(止)
+"GYQLRQK nvarchar(500) ," + //共有/共用权利人情况
+"SM nvarchar(100) ," + //说明
+"BZ char(60) ," + //北至
+"DZ char(60) ," + //东至
+"NZ char(60) ," + //南至
+"XZ char(60) ," + //西至
+"QSDCJS nvarchar(500) ," + //权属调查记事
+"DCYXM char(30) ," + //调查员姓名
+"DCRQ char(14) ," + //调查日期
+"DJKZJS nvarchar(500) ," + //地籍测量记事
+"CLYXM char(30) ," + //测量员姓名
+"CLRQ char(14) ," + //测量日期
+"DJDCJGSHYJ nvarchar(500) ," + //地籍调查结果审核意见
+"SHRXM char(30) ," + //审核人姓名
+"SHRQ char(14) ," + //审核日期
+"SHHG bit ," + //审核合格
+"FZMJ float ," + //发证面积
+"CSYJ nvarchar(500) ," + //国土资源行政主管部门初审意见
+"CSSCR char(30) ," + //初审审查人
+"CSRJ char(14) ," + //初审日期
+"CSRTDDJSGZH char(20) ," + //初审人土地登记上岗资格证号
+"CSHG bit ," + //初审合格
+"SHYJ nvarchar(500) ," + //国土资源行政主管部门审核意见
+"SHFZR char(30) ," + //审核负责人
+"SHRQ_SPB char(14) ," + //审核日期
+"SHRTDDJSGZH char(20) ," + //审核人土地登记上岗资格证号
+"SHTG bit ," + //审核通过
+"PZYJ nvarchar(500) ," + //人民政府批准意见
+"PZR char(30) ," + //批准人
+"PZRQ char(14) ," + //批准日期
+"PZTG bit ," + //批准通过
+"SPBH char(11) ," + //审批表号
+"SPBBZ nvarchar(100) ," + //审批表备注
+"SBB_BH char(19) ," + //申报表编号
+"SBB_TBRQ char(14) ," + //申报表填表日期
+"JTRK int ," + //家庭人口
+"RKJG int ," + //人口结构
+"YYLFJS int ," + //原有楼房间数
+"YYLFMJ float ," + //原有楼房面积
+"YYPFJS int ," + //原有平房间数
+"YYPFMJ float ," + //原有平房面积
+"LJLFJS int ," + //拟建楼房间数
+"LJLFMJ float ," + //拟建楼房面积
+"LJPFJS int ," + //拟建平房间数
+"LJPFMJ float ," + //拟建平房面积
+"STMJ float ," + //水田面积
+"HDMJ float ," + //旱地面积
+"CDMJ float ," + //菜地面积
+"YZJDMJ float ," + //原宅基面积
+"KXDMJ float ," + //空闲地面积
+"HSMJ float ," + //荒山地面积
+"CMZYJ nvarchar(500) ," + //村民组意见
+"ZZXM char(30) ," + //组长姓名
+"CMZQZRQ char(14) ," + //村民组签字日期
+"CWHYJ nvarchar(500) ," + //村委会意见
+"ZRXM char(30) ," + //主任姓名
+"CWHQZRQ char(14) ," + //村委会签字日期
+"XCKCYJ nvarchar(500) ," + //现场勘察意见
+"KCR char(30) ," + //勘察人
+"KCRQ char(14) ," + //勘察日期
+"XZGHBMYJ nvarchar(500) ," + //镇规划部门意见
+"XZGHBMFZR char(30) ," + //乡镇规划部门负责人
+"XZGHBMQZRQ char(14) ," + //乡镇规划签字日期
+"XZJWGHYJ nvarchar(500) ," + //县住建委规划意见
+"XZJWFZR char(30) ," + //县住建委负责人
+"XZJWQZRQ char(14) ," + //县住建委签字日期
+"XZZFSPYJ nvarchar(500) ," + //乡(镇)政府审批意见
+"XZZFSPRQ char(14) ," + //乡(镇)政府审批日期
+"XGTBMSCYJ nvarchar(500) ," + //县国土部门审查意见
+"XGTBMSCR char(30) ," + //县国土部门审查人
+"XGTBMSCRQ char(14) ," + //县国土部门审查日期
+"XZFSCYJ nvarchar(500) ," + //县政府审查意见
+"XZFSCRQ char(14) ," + //县政府审查日期
+"SBBSFDY bit ," + //申报表是否打印
+"TDZ_JY char(10) ," + //土地证“集用”
+"TDZ_LF char(10) ," + //土地证“年份”
+"TDZ_BH char(11) ," + //土地证编号
+"FZRQ char(14) ," + //发证日期
+"FZJS nvarchar(500) ," + //发证记事
+"DYMJ float ," + //独用面积
+"FTMJ float ," + //分摊面积
+"ZZRQ char(14) ," + //终止日期
+"TDZSFDY bit ," + //土地证是否打印
+"GHKBH char(11) ," + //归户卡编号
+"GHKDYRQ char(14) ," + //归户卡打印日期
+"GHKSFDY bit ," + //归户卡是否打印
+"GHKJBR char(30) ," + //归户卡经办人
+"DJKSFDY bit ," + //登记卡是否打印
+"TEXTBZ1 char(60) ," + //文本备注1
+"TEXTBZ2 char(60) ," + //文本备注2
+"TEXTBZ3 char(60) ," + //文本备注3
+"FBZ1 float ," + //浮点备注1
+"FBZ2 float ," + //浮点备注2
+"FBZ3 float ," + //浮点备注3
+"IBZ1 int ," + //整型备注1
+"IBZ2 int ," + //整型备注2
+"IBZ3 int )"  //整型备注3
+///////////////////////////新增///////////////////////////
+///////////////////////////新增///////////////////////////
+"insert into DCB("
++"DJH,WZDJH,SFTXSBB,Xmax,Xmin,Ymax,Ymin,JZXJB,SQSBH,QLR,"
++"SQRLX,QLR_ZJZL,QLR_ZJBH,DWXZ,FRDBXM,TXDZ,YZBM,DZYJ,LXR,LXDH,"
++"SQS_DLRXM,ZYZGZSH,DLJGMC,DLJGDH,SQRQ,QLR2,SQRLX2,QLR_ZJZL2,QLR_ZJBH2,DWXZ2,"
++"FRDBXM2,TXDZ2,YZBM2,DZYJ2,LXR2,LXDH2,SQS_DLRXM2,ZYZGZSH2,DLJGMC2,DLJGDH2,"
++"TDZL,ZDMJ,SJYT,QSXZ,DLBM,SYQLX,QLSLQJ,XYDZL,TDJG,TDDYMJ,"
++"DYSX,TDDYJE,DYQX_Q,DYQX_Z,SQDJLR,SQSBZ,DYSQRJZRQ,DESQRJZRQ,DCBRQ,FRDBZJBH,"
++"FRDBZJZL,FRDBDH,JBB_DLRXM,JBB_DLRZJBH,JBB_DLRZJZL,JBB_DLRDH,GMJJHYDM,YBZDDM,TFH,PZYT,"
++"PZYT_DLDM,JZZDMJ,JZMJ,SYQX_Q,SYQX_Z,GYQLRQK,SM,BZ,DZ,NZ,"
++"XZ,QSDCJS,DCYXM,DCRQ,DJKZJS,CLYXM,CLRQ,DJDCJGSHYJ,SHRXM,SHRQ,"
++"SHHG,FZMJ,CSYJ,CSSCR,CSRJ,CSRTDDJSGZH,CSHG,SHYJ,SHFZR,SHRQ_SPB,"
++"SHRTDDJSGZH,SHTG,PZYJ,PZR,PZRQ,PZTG,SPBH,SPBBZ,SBB_BH,SBB_TBRQ,"
++"JTRK,RKJG,YYLFJS,YYLFMJ,YYPFJS,YYPFMJ,LJLFJS,LJLFMJ,LJPFJS,LJPFMJ,"
++"STMJ,HDMJ,CDMJ,YZJDMJ,KXDMJ,HSMJ,CMZYJ,ZZXM,CMZQZRQ,CWHYJ,"
++"ZRXM,CWHQZRQ,XCKCYJ,KCR,KCRQ,XZGHBMYJ,XZGHBMFZR,XZGHBMQZRQ,XZJWGHYJ,XZJWFZR,"
++"XZJWQZRQ,XZZFSPYJ,XZZFSPRQ,XGTBMSCYJ,XGTBMSCR,XGTBMSCRQ,XZFSCYJ,XZFSCRQ,SBBSFDY,TDZ_JY,"
++"TDZ_LF,TDZ_BH,FZRQ,FZJS,DYMJ,FTMJ,ZZRQ,TDZSFDY,GHKBH,GHKDYRQ,"
++"GHKSFDY,GHKJBR,DJKSFDY,TEXTBZ1,TEXTBZ2,TEXTBZ3,FBZ1,FBZ2,FBZ3,IBZ1,"
++"IBZ2,IBZ3)"
++ " values "  
+"(@DJH,@WZDJH,@SFTXSBB,@Xmax,@Xmin,@Ymax,@Ymin,@JZXJB,@SQSBH,@QLR,"
+"@SQRLX,@QLR_ZJZL,@QLR_ZJBH,@DWXZ,@FRDBXM,@TXDZ,@YZBM,@DZYJ,@LXR,@LXDH,"
+"@SQS_DLRXM,@ZYZGZSH,@DLJGMC,@DLJGDH,@SQRQ,@QLR2,@SQRLX2,@QLR_ZJZL2,@QLR_ZJBH2,@DWXZ2,"
+"@FRDBXM2,@TXDZ2,@YZBM2,@DZYJ2,@LXR2,@LXDH2,@SQS_DLRXM2,@ZYZGZSH2,@DLJGMC2,@DLJGDH2,"
+"@TDZL,@ZDMJ,@SJYT,@QSXZ,@DLBM,@SYQLX,@QLSLQJ,@XYDZL,@TDJG,@TDDYMJ,"
+"@DYSX,@TDDYJE,@DYQX_Q,@DYQX_Z,@SQDJLR,@SQSBZ,@DYSQRJZRQ,@DESQRJZRQ,@DCBRQ,@FRDBZJBH,"
+"@FRDBZJZL,@FRDBDH,@JBB_DLRXM,@JBB_DLRZJBH,@JBB_DLRZJZL,@JBB_DLRDH,@GMJJHYDM,@YBZDDM,@TFH,@PZYT,"
+"@PZYT_DLDM,@JZZDMJ,@JZMJ,@SYQX_Q,@SYQX_Z,@GYQLRQK,@SM,@BZ,@DZ,@NZ,"
+"@XZ,@QSDCJS,@DCYXM,@DCRQ,@DJKZJS,@CLYXM,@CLRQ,@DJDCJGSHYJ,@SHRXM,@SHRQ,"
+"@SHHG,@FZMJ,@CSYJ,@CSSCR,@CSRJ,@CSRTDDJSGZH,@CSHG,@SHYJ,@SHFZR,@SHRQ_SPB,"
+"@SHRTDDJSGZH,@SHTG,@PZYJ,@PZR,@PZRQ,@PZTG,@SPBH,@SPBBZ,@SBB_BH,@SBB_TBRQ,"
+"@JTRK,@RKJG,@YYLFJS,@YYLFMJ,@YYPFJS,@YYPFMJ,@LJLFJS,@LJLFMJ,@LJPFJS,@LJPFMJ,"
+"@STMJ,@HDMJ,@CDMJ,@YZJDMJ,@KXDMJ,@HSMJ,@CMZYJ,@ZZXM,@CMZQZRQ,@CWHYJ,"
+"@ZRXM,@CWHQZRQ,@XCKCYJ,@KCR,@KCRQ,@XZGHBMYJ,@XZGHBMFZR,@XZGHBMQZRQ,@XZJWGHYJ,@XZJWFZR,"
+"@XZJWQZRQ,@XZZFSPYJ,@XZZFSPRQ,@XGTBMSCYJ,@XGTBMSCR,@XGTBMSCRQ,@XZFSCYJ,@XZFSCRQ,@SBBSFDY,@TDZ_JY,"
+"@TDZ_LF,@TDZ_BH,@FZRQ,@FZJS,@DYMJ,@FTMJ,@ZZRQ,@TDZSFDY,@GHKBH,@GHKDYRQ,"
+"@GHKSFDY,@GHKJBR,@DJKSFDY,@TEXTBZ1,@TEXTBZ2,@TEXTBZ3,@FBZ1,@FBZ2,@FBZ3,@IBZ1,"
+"@IBZ2,@IBZ3)"
+dataAdpater.InsertCommand.Parameters.Add("@DJH", SqlDbType.Char, 17, "DJH");
+dataAdpater.InsertCommand.Parameters.Add("@WZDJH", SqlDbType.Char, 19, "WZDJH");
+dataAdpater.InsertCommand.Parameters.Add("@SFTXSBB", SqlDbType.Bit, 1, "SFTXSBB");
+dataAdpater.InsertCommand.Parameters.Add("@Xmax", SqlDbType.Float, 8, "Xmax");
+dataAdpater.InsertCommand.Parameters.Add("@Xmin", SqlDbType.Float, 8, "Xmin");
+dataAdpater.InsertCommand.Parameters.Add("@Ymax", SqlDbType.Float, 8, "Ymax");
+dataAdpater.InsertCommand.Parameters.Add("@Ymin", SqlDbType.Float, 8, "Ymin");
+dataAdpater.InsertCommand.Parameters.Add("@JZXJB", SqlDbType.Char, 20, "JZXJB");
+dataAdpater.InsertCommand.Parameters.Add("@SQSBH", SqlDbType.Char, 11, "SQSBH");
+dataAdpater.InsertCommand.Parameters.Add("@QLR", SqlDbType.Char, 60, "QLR");
+dataAdpater.InsertCommand.Parameters.Add("@SQRLX", SqlDbType.Char, 20, "SQRLX");
+dataAdpater.InsertCommand.Parameters.Add("@QLR_ZJZL", SqlDbType.Char, 20, "QLR_ZJZL");
+dataAdpater.InsertCommand.Parameters.Add("@QLR_ZJBH", SqlDbType.Char, 20, "QLR_ZJBH");
+dataAdpater.InsertCommand.Parameters.Add("@DWXZ", SqlDbType.Char, 14, "DWXZ");
+dataAdpater.InsertCommand.Parameters.Add("@FRDBXM", SqlDbType.Char, 30, "FRDBXM");
+dataAdpater.InsertCommand.Parameters.Add("@TXDZ", SqlDbType.Nvarchar, 100, "TXDZ");
+dataAdpater.InsertCommand.Parameters.Add("@YZBM", SqlDbType.Char, 6, "YZBM");
+dataAdpater.InsertCommand.Parameters.Add("@DZYJ", SqlDbType.Char, 40, "DZYJ");
+dataAdpater.InsertCommand.Parameters.Add("@LXR", SqlDbType.Char, 60, "LXR");
+dataAdpater.InsertCommand.Parameters.Add("@LXDH", SqlDbType.Char, 15, "LXDH");
+dataAdpater.InsertCommand.Parameters.Add("@SQS_DLRXM", SqlDbType.Char, 60, "SQS_DLRXM");
+dataAdpater.InsertCommand.Parameters.Add("@ZYZGZSH", SqlDbType.Char, 20, "ZYZGZSH");
+dataAdpater.InsertCommand.Parameters.Add("@DLJGMC", SqlDbType.Char, 60, "DLJGMC");
+dataAdpater.InsertCommand.Parameters.Add("@DLJGDH", SqlDbType.Char, 15, "DLJGDH");
+dataAdpater.InsertCommand.Parameters.Add("@SQRQ", SqlDbType.Char, 14, "SQRQ");
+dataAdpater.InsertCommand.Parameters.Add("@QLR2", SqlDbType.Char, 60, "QLR2");
+dataAdpater.InsertCommand.Parameters.Add("@SQRLX2", SqlDbType.Char, 20, "SQRLX2");
+dataAdpater.InsertCommand.Parameters.Add("@QLR_ZJZL2", SqlDbType.Char, 20, "QLR_ZJZL2");
+dataAdpater.InsertCommand.Parameters.Add("@QLR_ZJBH2", SqlDbType.Char, 20, "QLR_ZJBH2");
+dataAdpater.InsertCommand.Parameters.Add("@DWXZ2", SqlDbType.Char, 14, "DWXZ2");
+dataAdpater.InsertCommand.Parameters.Add("@FRDBXM2", SqlDbType.Char, 30, "FRDBXM2");
+dataAdpater.InsertCommand.Parameters.Add("@TXDZ2", SqlDbType.Nvarchar, 100, "TXDZ2");
+dataAdpater.InsertCommand.Parameters.Add("@YZBM2", SqlDbType.Char, 6, "YZBM2");
+dataAdpater.InsertCommand.Parameters.Add("@DZYJ2", SqlDbType.Char, 40, "DZYJ2");
+dataAdpater.InsertCommand.Parameters.Add("@LXR2", SqlDbType.Char, 60, "LXR2");
+dataAdpater.InsertCommand.Parameters.Add("@LXDH2", SqlDbType.Char, 15, "LXDH2");
+dataAdpater.InsertCommand.Parameters.Add("@SQS_DLRXM2", SqlDbType.Char, 60, "SQS_DLRXM2");
+dataAdpater.InsertCommand.Parameters.Add("@ZYZGZSH2", SqlDbType.Char, 20, "ZYZGZSH2");
+dataAdpater.InsertCommand.Parameters.Add("@DLJGMC2", SqlDbType.Char, 60, "DLJGMC2");
+dataAdpater.InsertCommand.Parameters.Add("@DLJGDH2", SqlDbType.Char, 15, "DLJGDH2");
+dataAdpater.InsertCommand.Parameters.Add("@TDZL", SqlDbType.Nvarchar, 100, "TDZL");
+dataAdpater.InsertCommand.Parameters.Add("@ZDMJ", SqlDbType.Float, 8, "ZDMJ");
+dataAdpater.InsertCommand.Parameters.Add("@SJYT", SqlDbType.Char, 20, "SJYT");
+dataAdpater.InsertCommand.Parameters.Add("@QSXZ", SqlDbType.Char, 30, "QSXZ");
+dataAdpater.InsertCommand.Parameters.Add("@DLBM", SqlDbType.Char, 3, "DLBM");
+dataAdpater.InsertCommand.Parameters.Add("@SYQLX", SqlDbType.Char, 20, "SYQLX");
+dataAdpater.InsertCommand.Parameters.Add("@QLSLQJ", SqlDbType.Char, 4, "QLSLQJ");
+dataAdpater.InsertCommand.Parameters.Add("@XYDZL", SqlDbType.Nvarchar, 100, "XYDZL");
+dataAdpater.InsertCommand.Parameters.Add("@TDJG", SqlDbType.Float, 8, "TDJG");
+dataAdpater.InsertCommand.Parameters.Add("@TDDYMJ", SqlDbType.Float, 8, "TDDYMJ");
+dataAdpater.InsertCommand.Parameters.Add("@DYSX", SqlDbType.Char, 20, "DYSX");
+dataAdpater.InsertCommand.Parameters.Add("@TDDYJE", SqlDbType.Float, 8, "TDDYJE");
+dataAdpater.InsertCommand.Parameters.Add("@DYQX_Q", SqlDbType.Char, 14, "DYQX_Q");
+dataAdpater.InsertCommand.Parameters.Add("@DYQX_Z", SqlDbType.Char, 14, "DYQX_Z");
+dataAdpater.InsertCommand.Parameters.Add("@SQDJLR", SqlDbType.Nvarchar, 500, "SQDJLR");
+dataAdpater.InsertCommand.Parameters.Add("@SQSBZ", SqlDbType.Nvarchar, 100, "SQSBZ");
+dataAdpater.InsertCommand.Parameters.Add("@DYSQRJZRQ", SqlDbType.Char, 14, "DYSQRJZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@DESQRJZRQ", SqlDbType.Char, 14, "DESQRJZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@DCBRQ", SqlDbType.Char, 14, "DCBRQ");
+dataAdpater.InsertCommand.Parameters.Add("@FRDBZJBH", SqlDbType.Char, 20, "FRDBZJBH");
+dataAdpater.InsertCommand.Parameters.Add("@FRDBZJZL", SqlDbType.Char, 20, "FRDBZJZL");
+dataAdpater.InsertCommand.Parameters.Add("@FRDBDH", SqlDbType.Char, 15, "FRDBDH");
+dataAdpater.InsertCommand.Parameters.Add("@JBB_DLRXM", SqlDbType.Char, 30, "JBB_DLRXM");
+dataAdpater.InsertCommand.Parameters.Add("@JBB_DLRZJBH", SqlDbType.Char, 20, "JBB_DLRZJBH");
+dataAdpater.InsertCommand.Parameters.Add("@JBB_DLRZJZL", SqlDbType.Char, 20, "JBB_DLRZJZL");
+dataAdpater.InsertCommand.Parameters.Add("@JBB_DLRDH", SqlDbType.Char, 15, "JBB_DLRDH");
+dataAdpater.InsertCommand.Parameters.Add("@GMJJHYDM", SqlDbType.Char, 4, "GMJJHYDM");
+dataAdpater.InsertCommand.Parameters.Add("@YBZDDM", SqlDbType.Char, 19, "YBZDDM");
+dataAdpater.InsertCommand.Parameters.Add("@TFH", SqlDbType.Char, 20, "TFH");
+dataAdpater.InsertCommand.Parameters.Add("@PZYT", SqlDbType.Char, 20, "PZYT");
+dataAdpater.InsertCommand.Parameters.Add("@PZYT_DLDM", SqlDbType.Char, 3, "PZYT_DLDM");
+dataAdpater.InsertCommand.Parameters.Add("@JZZDMJ", SqlDbType.Float, 8, "JZZDMJ");
+dataAdpater.InsertCommand.Parameters.Add("@JZMJ", SqlDbType.Float, 8, "JZMJ");
+dataAdpater.InsertCommand.Parameters.Add("@SYQX_Q", SqlDbType.Char, 14, "SYQX_Q");
+dataAdpater.InsertCommand.Parameters.Add("@SYQX_Z", SqlDbType.Char, 14, "SYQX_Z");
+dataAdpater.InsertCommand.Parameters.Add("@GYQLRQK", SqlDbType.Nvarchar, 500, "GYQLRQK");
+dataAdpater.InsertCommand.Parameters.Add("@SM", SqlDbType.Nvarchar, 100, "SM");
+dataAdpater.InsertCommand.Parameters.Add("@BZ", SqlDbType.Char, 60, "BZ");
+dataAdpater.InsertCommand.Parameters.Add("@DZ", SqlDbType.Char, 60, "DZ");
+dataAdpater.InsertCommand.Parameters.Add("@NZ", SqlDbType.Char, 60, "NZ");
+dataAdpater.InsertCommand.Parameters.Add("@XZ", SqlDbType.Char, 60, "XZ");
+dataAdpater.InsertCommand.Parameters.Add("@QSDCJS", SqlDbType.Nvarchar, 500, "QSDCJS");
+dataAdpater.InsertCommand.Parameters.Add("@DCYXM", SqlDbType.Char, 30, "DCYXM");
+dataAdpater.InsertCommand.Parameters.Add("@DCRQ", SqlDbType.Char, 14, "DCRQ");
+dataAdpater.InsertCommand.Parameters.Add("@DJKZJS", SqlDbType.Nvarchar, 500, "DJKZJS");
+dataAdpater.InsertCommand.Parameters.Add("@CLYXM", SqlDbType.Char, 30, "CLYXM");
+dataAdpater.InsertCommand.Parameters.Add("@CLRQ", SqlDbType.Char, 14, "CLRQ");
+dataAdpater.InsertCommand.Parameters.Add("@DJDCJGSHYJ", SqlDbType.Nvarchar, 500, "DJDCJGSHYJ");
+dataAdpater.InsertCommand.Parameters.Add("@SHRXM", SqlDbType.Char, 30, "SHRXM");
+dataAdpater.InsertCommand.Parameters.Add("@SHRQ", SqlDbType.Char, 14, "SHRQ");
+dataAdpater.InsertCommand.Parameters.Add("@SHHG", SqlDbType.Bit, 1, "SHHG");
+dataAdpater.InsertCommand.Parameters.Add("@FZMJ", SqlDbType.Float, 8, "FZMJ");
+dataAdpater.InsertCommand.Parameters.Add("@CSYJ", SqlDbType.Nvarchar, 500, "CSYJ");
+dataAdpater.InsertCommand.Parameters.Add("@CSSCR", SqlDbType.Char, 30, "CSSCR");
+dataAdpater.InsertCommand.Parameters.Add("@CSRJ", SqlDbType.Char, 14, "CSRJ");
+dataAdpater.InsertCommand.Parameters.Add("@CSRTDDJSGZH", SqlDbType.Char, 20, "CSRTDDJSGZH");
+dataAdpater.InsertCommand.Parameters.Add("@CSHG", SqlDbType.Bit, 1, "CSHG");
+dataAdpater.InsertCommand.Parameters.Add("@SHYJ", SqlDbType.Nvarchar, 500, "SHYJ");
+dataAdpater.InsertCommand.Parameters.Add("@SHFZR", SqlDbType.Char, 30, "SHFZR");
+dataAdpater.InsertCommand.Parameters.Add("@SHRQ_SPB", SqlDbType.Char, 14, "SHRQ_SPB");
+dataAdpater.InsertCommand.Parameters.Add("@SHRTDDJSGZH", SqlDbType.Char, 20, "SHRTDDJSGZH");
+dataAdpater.InsertCommand.Parameters.Add("@SHTG", SqlDbType.Bit, 1, "SHTG");
+dataAdpater.InsertCommand.Parameters.Add("@PZYJ", SqlDbType.Nvarchar, 500, "PZYJ");
+dataAdpater.InsertCommand.Parameters.Add("@PZR", SqlDbType.Char, 30, "PZR");
+dataAdpater.InsertCommand.Parameters.Add("@PZRQ", SqlDbType.Char, 14, "PZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@PZTG", SqlDbType.Bit, 1, "PZTG");
+dataAdpater.InsertCommand.Parameters.Add("@SPBH", SqlDbType.Char, 11, "SPBH");
+dataAdpater.InsertCommand.Parameters.Add("@SPBBZ", SqlDbType.Nvarchar, 100, "SPBBZ");
+dataAdpater.InsertCommand.Parameters.Add("@SBB_BH", SqlDbType.Char, 19, "SBB_BH");
+dataAdpater.InsertCommand.Parameters.Add("@SBB_TBRQ", SqlDbType.Char, 14, "SBB_TBRQ");
+dataAdpater.InsertCommand.Parameters.Add("@JTRK", SqlDbType.Int, 4, "JTRK");
+dataAdpater.InsertCommand.Parameters.Add("@RKJG", SqlDbType.Int, 4, "RKJG");
+dataAdpater.InsertCommand.Parameters.Add("@YYLFJS", SqlDbType.Int, 4, "YYLFJS");
+dataAdpater.InsertCommand.Parameters.Add("@YYLFMJ", SqlDbType.Float, 8, "YYLFMJ");
+dataAdpater.InsertCommand.Parameters.Add("@YYPFJS", SqlDbType.Int, 4, "YYPFJS");
+dataAdpater.InsertCommand.Parameters.Add("@YYPFMJ", SqlDbType.Float, 8, "YYPFMJ");
+dataAdpater.InsertCommand.Parameters.Add("@LJLFJS", SqlDbType.Int, 4, "LJLFJS");
+dataAdpater.InsertCommand.Parameters.Add("@LJLFMJ", SqlDbType.Float, 8, "LJLFMJ");
+dataAdpater.InsertCommand.Parameters.Add("@LJPFJS", SqlDbType.Int, 4, "LJPFJS");
+dataAdpater.InsertCommand.Parameters.Add("@LJPFMJ", SqlDbType.Float, 8, "LJPFMJ");
+dataAdpater.InsertCommand.Parameters.Add("@STMJ", SqlDbType.Float, 8, "STMJ");
+dataAdpater.InsertCommand.Parameters.Add("@HDMJ", SqlDbType.Float, 8, "HDMJ");
+dataAdpater.InsertCommand.Parameters.Add("@CDMJ", SqlDbType.Float, 8, "CDMJ");
+dataAdpater.InsertCommand.Parameters.Add("@YZJDMJ", SqlDbType.Float, 8, "YZJDMJ");
+dataAdpater.InsertCommand.Parameters.Add("@KXDMJ", SqlDbType.Float, 8, "KXDMJ");
+dataAdpater.InsertCommand.Parameters.Add("@HSMJ", SqlDbType.Float, 8, "HSMJ");
+dataAdpater.InsertCommand.Parameters.Add("@CMZYJ", SqlDbType.Nvarchar, 500, "CMZYJ");
+dataAdpater.InsertCommand.Parameters.Add("@ZZXM", SqlDbType.Char, 30, "ZZXM");
+dataAdpater.InsertCommand.Parameters.Add("@CMZQZRQ", SqlDbType.Char, 14, "CMZQZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@CWHYJ", SqlDbType.Nvarchar, 500, "CWHYJ");
+dataAdpater.InsertCommand.Parameters.Add("@ZRXM", SqlDbType.Char, 30, "ZRXM");
+dataAdpater.InsertCommand.Parameters.Add("@CWHQZRQ", SqlDbType.Char, 14, "CWHQZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@XCKCYJ", SqlDbType.Nvarchar, 500, "XCKCYJ");
+dataAdpater.InsertCommand.Parameters.Add("@KCR", SqlDbType.Char, 30, "KCR");
+dataAdpater.InsertCommand.Parameters.Add("@KCRQ", SqlDbType.Char, 14, "KCRQ");
+dataAdpater.InsertCommand.Parameters.Add("@XZGHBMYJ", SqlDbType.Nvarchar, 500, "XZGHBMYJ");
+dataAdpater.InsertCommand.Parameters.Add("@XZGHBMFZR", SqlDbType.Char, 30, "XZGHBMFZR");
+dataAdpater.InsertCommand.Parameters.Add("@XZGHBMQZRQ", SqlDbType.Char, 14, "XZGHBMQZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@XZJWGHYJ", SqlDbType.Nvarchar, 500, "XZJWGHYJ");
+dataAdpater.InsertCommand.Parameters.Add("@XZJWFZR", SqlDbType.Char, 30, "XZJWFZR");
+dataAdpater.InsertCommand.Parameters.Add("@XZJWQZRQ", SqlDbType.Char, 14, "XZJWQZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@XZZFSPYJ", SqlDbType.Nvarchar, 500, "XZZFSPYJ");
+dataAdpater.InsertCommand.Parameters.Add("@XZZFSPRQ", SqlDbType.Char, 14, "XZZFSPRQ");
+dataAdpater.InsertCommand.Parameters.Add("@XGTBMSCYJ", SqlDbType.Nvarchar, 500, "XGTBMSCYJ");
+dataAdpater.InsertCommand.Parameters.Add("@XGTBMSCR", SqlDbType.Char, 30, "XGTBMSCR");
+dataAdpater.InsertCommand.Parameters.Add("@XGTBMSCRQ", SqlDbType.Char, 14, "XGTBMSCRQ");
+dataAdpater.InsertCommand.Parameters.Add("@XZFSCYJ", SqlDbType.Nvarchar, 500, "XZFSCYJ");
+dataAdpater.InsertCommand.Parameters.Add("@XZFSCRQ", SqlDbType.Char, 14, "XZFSCRQ");
+dataAdpater.InsertCommand.Parameters.Add("@SBBSFDY", SqlDbType.Bit, 1, "SBBSFDY");
+dataAdpater.InsertCommand.Parameters.Add("@TDZ_JY", SqlDbType.Char, 10, "TDZ_JY");
+dataAdpater.InsertCommand.Parameters.Add("@TDZ_LF", SqlDbType.Char, 10, "TDZ_LF");
+dataAdpater.InsertCommand.Parameters.Add("@TDZ_BH", SqlDbType.Char, 11, "TDZ_BH");
+dataAdpater.InsertCommand.Parameters.Add("@FZRQ", SqlDbType.Char, 14, "FZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@FZJS", SqlDbType.Nvarchar, 500, "FZJS");
+dataAdpater.InsertCommand.Parameters.Add("@DYMJ", SqlDbType.Float, 8, "DYMJ");
+dataAdpater.InsertCommand.Parameters.Add("@FTMJ", SqlDbType.Float, 8, "FTMJ");
+dataAdpater.InsertCommand.Parameters.Add("@ZZRQ", SqlDbType.Char, 14, "ZZRQ");
+dataAdpater.InsertCommand.Parameters.Add("@TDZSFDY", SqlDbType.Bit, 1, "TDZSFDY");
+dataAdpater.InsertCommand.Parameters.Add("@GHKBH", SqlDbType.Char, 11, "GHKBH");
+dataAdpater.InsertCommand.Parameters.Add("@GHKDYRQ", SqlDbType.Char, 14, "GHKDYRQ");
+dataAdpater.InsertCommand.Parameters.Add("@GHKSFDY", SqlDbType.Bit, 1, "GHKSFDY");
+dataAdpater.InsertCommand.Parameters.Add("@GHKJBR", SqlDbType.Char, 30, "GHKJBR");
+dataAdpater.InsertCommand.Parameters.Add("@DJKSFDY", SqlDbType.Bit, 1, "DJKSFDY");
+dataAdpater.InsertCommand.Parameters.Add("@TEXTBZ1", SqlDbType.Char, 60, "TEXTBZ1");
+dataAdpater.InsertCommand.Parameters.Add("@TEXTBZ2", SqlDbType.Char, 60, "TEXTBZ2");
+dataAdpater.InsertCommand.Parameters.Add("@TEXTBZ3", SqlDbType.Char, 60, "TEXTBZ3");
+dataAdpater.InsertCommand.Parameters.Add("@FBZ1", SqlDbType.Float, 8, "FBZ1");
+dataAdpater.InsertCommand.Parameters.Add("@FBZ2", SqlDbType.Float, 8, "FBZ2");
+dataAdpater.InsertCommand.Parameters.Add("@FBZ3", SqlDbType.Float, 8, "FBZ3");
+dataAdpater.InsertCommand.Parameters.Add("@IBZ1", SqlDbType.Int, 4, "IBZ1");
+dataAdpater.InsertCommand.Parameters.Add("@IBZ2", SqlDbType.Int, 4, "IBZ2");
+dataAdpater.InsertCommand.Parameters.Add("@IBZ3", SqlDbType.Int, 4, "IBZ3");
+/////////////////////修改/////////////////////
+/////////////////////修改/////////////////////
+"UPDATE DCB SET "
++ "DJH = @DJH "
++ ", WZDJH = @WZDJH "
++ ", SFTXSBB = @SFTXSBB "
++ ", Xmax = @Xmax "
++ ", Xmin = @Xmin "
++ ", Ymax = @Ymax "
++ ", Ymin = @Ymin "
++ ", JZXJB = @JZXJB "
++ ", SQSBH = @SQSBH "
++ ", QLR = @QLR "
++ ", SQRLX = @SQRLX "
++ ", QLR_ZJZL = @QLR_ZJZL "
++ ", QLR_ZJBH = @QLR_ZJBH "
++ ", DWXZ = @DWXZ "
++ ", FRDBXM = @FRDBXM "
++ ", TXDZ = @TXDZ "
++ ", YZBM = @YZBM "
++ ", DZYJ = @DZYJ "
++ ", LXR = @LXR "
++ ", LXDH = @LXDH "
++ ", SQS_DLRXM = @SQS_DLRXM "
++ ", ZYZGZSH = @ZYZGZSH "
++ ", DLJGMC = @DLJGMC "
++ ", DLJGDH = @DLJGDH "
++ ", SQRQ = @SQRQ "
++ ", QLR2 = @QLR2 "
++ ", SQRLX2 = @SQRLX2 "
++ ", QLR_ZJZL2 = @QLR_ZJZL2 "
++ ", QLR_ZJBH2 = @QLR_ZJBH2 "
++ ", DWXZ2 = @DWXZ2 "
++ ", FRDBXM2 = @FRDBXM2 "
++ ", TXDZ2 = @TXDZ2 "
++ ", YZBM2 = @YZBM2 "
++ ", DZYJ2 = @DZYJ2 "
++ ", LXR2 = @LXR2 "
++ ", LXDH2 = @LXDH2 "
++ ", SQS_DLRXM2 = @SQS_DLRXM2 "
++ ", ZYZGZSH2 = @ZYZGZSH2 "
++ ", DLJGMC2 = @DLJGMC2 "
++ ", DLJGDH2 = @DLJGDH2 "
++ ", TDZL = @TDZL "
++ ", ZDMJ = @ZDMJ "
++ ", SJYT = @SJYT "
++ ", QSXZ = @QSXZ "
++ ", DLBM = @DLBM "
++ ", SYQLX = @SYQLX "
++ ", QLSLQJ = @QLSLQJ "
++ ", XYDZL = @XYDZL "
++ ", TDJG = @TDJG "
++ ", TDDYMJ = @TDDYMJ "
++ ", DYSX = @DYSX "
++ ", TDDYJE = @TDDYJE "
++ ", DYQX_Q = @DYQX_Q "
++ ", DYQX_Z = @DYQX_Z "
++ ", SQDJLR = @SQDJLR "
++ ", SQSBZ = @SQSBZ "
++ ", DYSQRJZRQ = @DYSQRJZRQ "
++ ", DESQRJZRQ = @DESQRJZRQ "
++ ", DCBRQ = @DCBRQ "
++ ", FRDBZJBH = @FRDBZJBH "
++ ", FRDBZJZL = @FRDBZJZL "
++ ", FRDBDH = @FRDBDH "
++ ", JBB_DLRXM = @JBB_DLRXM "
++ ", JBB_DLRZJBH = @JBB_DLRZJBH "
++ ", JBB_DLRZJZL = @JBB_DLRZJZL "
++ ", JBB_DLRDH = @JBB_DLRDH "
++ ", GMJJHYDM = @GMJJHYDM "
++ ", YBZDDM = @YBZDDM "
++ ", TFH = @TFH "
++ ", PZYT = @PZYT "
++ ", PZYT_DLDM = @PZYT_DLDM "
++ ", JZZDMJ = @JZZDMJ "
++ ", JZMJ = @JZMJ "
++ ", SYQX_Q = @SYQX_Q "
++ ", SYQX_Z = @SYQX_Z "
++ ", GYQLRQK = @GYQLRQK "
++ ", SM = @SM "
++ ", BZ = @BZ "
++ ", DZ = @DZ "
++ ", NZ = @NZ "
++ ", XZ = @XZ "
++ ", QSDCJS = @QSDCJS "
++ ", DCYXM = @DCYXM "
++ ", DCRQ = @DCRQ "
++ ", DJKZJS = @DJKZJS "
++ ", CLYXM = @CLYXM "
++ ", CLRQ = @CLRQ "
++ ", DJDCJGSHYJ = @DJDCJGSHYJ "
++ ", SHRXM = @SHRXM "
++ ", SHRQ = @SHRQ "
++ ", SHHG = @SHHG "
++ ", FZMJ = @FZMJ "
++ ", CSYJ = @CSYJ "
++ ", CSSCR = @CSSCR "
++ ", CSRJ = @CSRJ "
++ ", CSRTDDJSGZH = @CSRTDDJSGZH "
++ ", CSHG = @CSHG "
++ ", SHYJ = @SHYJ "
++ ", SHFZR = @SHFZR "
++ ", SHRQ_SPB = @SHRQ_SPB "
++ ", SHRTDDJSGZH = @SHRTDDJSGZH "
++ ", SHTG = @SHTG "
++ ", PZYJ = @PZYJ "
++ ", PZR = @PZR "
++ ", PZRQ = @PZRQ "
++ ", PZTG = @PZTG "
++ ", SPBH = @SPBH "
++ ", SPBBZ = @SPBBZ "
++ ", SBB_BH = @SBB_BH "
++ ", SBB_TBRQ = @SBB_TBRQ "
++ ", JTRK = @JTRK "
++ ", RKJG = @RKJG "
++ ", YYLFJS = @YYLFJS "
++ ", YYLFMJ = @YYLFMJ "
++ ", YYPFJS = @YYPFJS "
++ ", YYPFMJ = @YYPFMJ "
++ ", LJLFJS = @LJLFJS "
++ ", LJLFMJ = @LJLFMJ "
++ ", LJPFJS = @LJPFJS "
++ ", LJPFMJ = @LJPFMJ "
++ ", STMJ = @STMJ "
++ ", HDMJ = @HDMJ "
++ ", CDMJ = @CDMJ "
++ ", YZJDMJ = @YZJDMJ "
++ ", KXDMJ = @KXDMJ "
++ ", HSMJ = @HSMJ "
++ ", CMZYJ = @CMZYJ "
++ ", ZZXM = @ZZXM "
++ ", CMZQZRQ = @CMZQZRQ "
++ ", CWHYJ = @CWHYJ "
++ ", ZRXM = @ZRXM "
++ ", CWHQZRQ = @CWHQZRQ "
++ ", XCKCYJ = @XCKCYJ "
++ ", KCR = @KCR "
++ ", KCRQ = @KCRQ "
++ ", XZGHBMYJ = @XZGHBMYJ "
++ ", XZGHBMFZR = @XZGHBMFZR "
++ ", XZGHBMQZRQ = @XZGHBMQZRQ "
++ ", XZJWGHYJ = @XZJWGHYJ "
++ ", XZJWFZR = @XZJWFZR "
++ ", XZJWQZRQ = @XZJWQZRQ "
++ ", XZZFSPYJ = @XZZFSPYJ "
++ ", XZZFSPRQ = @XZZFSPRQ "
++ ", XGTBMSCYJ = @XGTBMSCYJ "
++ ", XGTBMSCR = @XGTBMSCR "
++ ", XGTBMSCRQ = @XGTBMSCRQ "
++ ", XZFSCYJ = @XZFSCYJ "
++ ", XZFSCRQ = @XZFSCRQ "
++ ", SBBSFDY = @SBBSFDY "
++ ", TDZ_JY = @TDZ_JY "
++ ", TDZ_LF = @TDZ_LF "
++ ", TDZ_BH = @TDZ_BH "
++ ", FZRQ = @FZRQ "
++ ", FZJS = @FZJS "
++ ", DYMJ = @DYMJ "
++ ", FTMJ = @FTMJ "
++ ", ZZRQ = @ZZRQ "
++ ", TDZSFDY = @TDZSFDY "
++ ", GHKBH = @GHKBH "
++ ", GHKDYRQ = @GHKDYRQ "
++ ", GHKSFDY = @GHKSFDY "
++ ", GHKJBR = @GHKJBR "
++ ", DJKSFDY = @DJKSFDY "
++ ", TEXTBZ1 = @TEXTBZ1 "
++ ", TEXTBZ2 = @TEXTBZ2 "
++ ", TEXTBZ3 = @TEXTBZ3 "
++ ", FBZ1 = @FBZ1 "
++ ", FBZ2 = @FBZ2 "
++ ", FBZ3 = @FBZ3 "
++ ", IBZ1 = @IBZ1 "
++ ", IBZ2 = @IBZ2 "
++ ", IBZ3 = @IBZ3 "
++ " WHERE  "/////////////////////修改2/////////////////////
+dataAdpater.UpdateCommand.Parameters.Add("@DJH", SqlDbType.Char, 17, "DJH");
+dataAdpater.UpdateCommand.Parameters.Add("@WZDJH", SqlDbType.Char, 19, "WZDJH");
+dataAdpater.UpdateCommand.Parameters.Add("@SFTXSBB", SqlDbType.Bit, 1, "SFTXSBB");
+dataAdpater.UpdateCommand.Parameters.Add("@Xmax", SqlDbType.Float, 8, "Xmax");
+dataAdpater.UpdateCommand.Parameters.Add("@Xmin", SqlDbType.Float, 8, "Xmin");
+dataAdpater.UpdateCommand.Parameters.Add("@Ymax", SqlDbType.Float, 8, "Ymax");
+dataAdpater.UpdateCommand.Parameters.Add("@Ymin", SqlDbType.Float, 8, "Ymin");
+dataAdpater.UpdateCommand.Parameters.Add("@JZXJB", SqlDbType.Char, 20, "JZXJB");
+dataAdpater.UpdateCommand.Parameters.Add("@SQSBH", SqlDbType.Char, 11, "SQSBH");
+dataAdpater.UpdateCommand.Parameters.Add("@QLR", SqlDbType.Char, 60, "QLR");
+dataAdpater.UpdateCommand.Parameters.Add("@SQRLX", SqlDbType.Char, 20, "SQRLX");
+dataAdpater.UpdateCommand.Parameters.Add("@QLR_ZJZL", SqlDbType.Char, 20, "QLR_ZJZL");
+dataAdpater.UpdateCommand.Parameters.Add("@QLR_ZJBH", SqlDbType.Char, 20, "QLR_ZJBH");
+dataAdpater.UpdateCommand.Parameters.Add("@DWXZ", SqlDbType.Char, 14, "DWXZ");
+dataAdpater.UpdateCommand.Parameters.Add("@FRDBXM", SqlDbType.Char, 30, "FRDBXM");
+dataAdpater.UpdateCommand.Parameters.Add("@TXDZ", SqlDbType.Nvarchar, 100, "TXDZ");
+dataAdpater.UpdateCommand.Parameters.Add("@YZBM", SqlDbType.Char, 6, "YZBM");
+dataAdpater.UpdateCommand.Parameters.Add("@DZYJ", SqlDbType.Char, 40, "DZYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@LXR", SqlDbType.Char, 60, "LXR");
+dataAdpater.UpdateCommand.Parameters.Add("@LXDH", SqlDbType.Char, 15, "LXDH");
+dataAdpater.UpdateCommand.Parameters.Add("@SQS_DLRXM", SqlDbType.Char, 60, "SQS_DLRXM");
+dataAdpater.UpdateCommand.Parameters.Add("@ZYZGZSH", SqlDbType.Char, 20, "ZYZGZSH");
+dataAdpater.UpdateCommand.Parameters.Add("@DLJGMC", SqlDbType.Char, 60, "DLJGMC");
+dataAdpater.UpdateCommand.Parameters.Add("@DLJGDH", SqlDbType.Char, 15, "DLJGDH");
+dataAdpater.UpdateCommand.Parameters.Add("@SQRQ", SqlDbType.Char, 14, "SQRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@QLR2", SqlDbType.Char, 60, "QLR2");
+dataAdpater.UpdateCommand.Parameters.Add("@SQRLX2", SqlDbType.Char, 20, "SQRLX2");
+dataAdpater.UpdateCommand.Parameters.Add("@QLR_ZJZL2", SqlDbType.Char, 20, "QLR_ZJZL2");
+dataAdpater.UpdateCommand.Parameters.Add("@QLR_ZJBH2", SqlDbType.Char, 20, "QLR_ZJBH2");
+dataAdpater.UpdateCommand.Parameters.Add("@DWXZ2", SqlDbType.Char, 14, "DWXZ2");
+dataAdpater.UpdateCommand.Parameters.Add("@FRDBXM2", SqlDbType.Char, 30, "FRDBXM2");
+dataAdpater.UpdateCommand.Parameters.Add("@TXDZ2", SqlDbType.Nvarchar, 100, "TXDZ2");
+dataAdpater.UpdateCommand.Parameters.Add("@YZBM2", SqlDbType.Char, 6, "YZBM2");
+dataAdpater.UpdateCommand.Parameters.Add("@DZYJ2", SqlDbType.Char, 40, "DZYJ2");
+dataAdpater.UpdateCommand.Parameters.Add("@LXR2", SqlDbType.Char, 60, "LXR2");
+dataAdpater.UpdateCommand.Parameters.Add("@LXDH2", SqlDbType.Char, 15, "LXDH2");
+dataAdpater.UpdateCommand.Parameters.Add("@SQS_DLRXM2", SqlDbType.Char, 60, "SQS_DLRXM2");
+dataAdpater.UpdateCommand.Parameters.Add("@ZYZGZSH2", SqlDbType.Char, 20, "ZYZGZSH2");
+dataAdpater.UpdateCommand.Parameters.Add("@DLJGMC2", SqlDbType.Char, 60, "DLJGMC2");
+dataAdpater.UpdateCommand.Parameters.Add("@DLJGDH2", SqlDbType.Char, 15, "DLJGDH2");
+dataAdpater.UpdateCommand.Parameters.Add("@TDZL", SqlDbType.Nvarchar, 100, "TDZL");
+dataAdpater.UpdateCommand.Parameters.Add("@ZDMJ", SqlDbType.Float, 8, "ZDMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@SJYT", SqlDbType.Char, 20, "SJYT");
+dataAdpater.UpdateCommand.Parameters.Add("@QSXZ", SqlDbType.Char, 30, "QSXZ");
+dataAdpater.UpdateCommand.Parameters.Add("@DLBM", SqlDbType.Char, 3, "DLBM");
+dataAdpater.UpdateCommand.Parameters.Add("@SYQLX", SqlDbType.Char, 20, "SYQLX");
+dataAdpater.UpdateCommand.Parameters.Add("@QLSLQJ", SqlDbType.Char, 4, "QLSLQJ");
+dataAdpater.UpdateCommand.Parameters.Add("@XYDZL", SqlDbType.Nvarchar, 100, "XYDZL");
+dataAdpater.UpdateCommand.Parameters.Add("@TDJG", SqlDbType.Float, 8, "TDJG");
+dataAdpater.UpdateCommand.Parameters.Add("@TDDYMJ", SqlDbType.Float, 8, "TDDYMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@DYSX", SqlDbType.Char, 20, "DYSX");
+dataAdpater.UpdateCommand.Parameters.Add("@TDDYJE", SqlDbType.Float, 8, "TDDYJE");
+dataAdpater.UpdateCommand.Parameters.Add("@DYQX_Q", SqlDbType.Char, 14, "DYQX_Q");
+dataAdpater.UpdateCommand.Parameters.Add("@DYQX_Z", SqlDbType.Char, 14, "DYQX_Z");
+dataAdpater.UpdateCommand.Parameters.Add("@SQDJLR", SqlDbType.Nvarchar, 500, "SQDJLR");
+dataAdpater.UpdateCommand.Parameters.Add("@SQSBZ", SqlDbType.Nvarchar, 100, "SQSBZ");
+dataAdpater.UpdateCommand.Parameters.Add("@DYSQRJZRQ", SqlDbType.Char, 14, "DYSQRJZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@DESQRJZRQ", SqlDbType.Char, 14, "DESQRJZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@DCBRQ", SqlDbType.Char, 14, "DCBRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@FRDBZJBH", SqlDbType.Char, 20, "FRDBZJBH");
+dataAdpater.UpdateCommand.Parameters.Add("@FRDBZJZL", SqlDbType.Char, 20, "FRDBZJZL");
+dataAdpater.UpdateCommand.Parameters.Add("@FRDBDH", SqlDbType.Char, 15, "FRDBDH");
+dataAdpater.UpdateCommand.Parameters.Add("@JBB_DLRXM", SqlDbType.Char, 30, "JBB_DLRXM");
+dataAdpater.UpdateCommand.Parameters.Add("@JBB_DLRZJBH", SqlDbType.Char, 20, "JBB_DLRZJBH");
+dataAdpater.UpdateCommand.Parameters.Add("@JBB_DLRZJZL", SqlDbType.Char, 20, "JBB_DLRZJZL");
+dataAdpater.UpdateCommand.Parameters.Add("@JBB_DLRDH", SqlDbType.Char, 15, "JBB_DLRDH");
+dataAdpater.UpdateCommand.Parameters.Add("@GMJJHYDM", SqlDbType.Char, 4, "GMJJHYDM");
+dataAdpater.UpdateCommand.Parameters.Add("@YBZDDM", SqlDbType.Char, 19, "YBZDDM");
+dataAdpater.UpdateCommand.Parameters.Add("@TFH", SqlDbType.Char, 20, "TFH");
+dataAdpater.UpdateCommand.Parameters.Add("@PZYT", SqlDbType.Char, 20, "PZYT");
+dataAdpater.UpdateCommand.Parameters.Add("@PZYT_DLDM", SqlDbType.Char, 3, "PZYT_DLDM");
+dataAdpater.UpdateCommand.Parameters.Add("@JZZDMJ", SqlDbType.Float, 8, "JZZDMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@JZMJ", SqlDbType.Float, 8, "JZMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@SYQX_Q", SqlDbType.Char, 14, "SYQX_Q");
+dataAdpater.UpdateCommand.Parameters.Add("@SYQX_Z", SqlDbType.Char, 14, "SYQX_Z");
+dataAdpater.UpdateCommand.Parameters.Add("@GYQLRQK", SqlDbType.Nvarchar, 500, "GYQLRQK");
+dataAdpater.UpdateCommand.Parameters.Add("@SM", SqlDbType.Nvarchar, 100, "SM");
+dataAdpater.UpdateCommand.Parameters.Add("@BZ", SqlDbType.Char, 60, "BZ");
+dataAdpater.UpdateCommand.Parameters.Add("@DZ", SqlDbType.Char, 60, "DZ");
+dataAdpater.UpdateCommand.Parameters.Add("@NZ", SqlDbType.Char, 60, "NZ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZ", SqlDbType.Char, 60, "XZ");
+dataAdpater.UpdateCommand.Parameters.Add("@QSDCJS", SqlDbType.Nvarchar, 500, "QSDCJS");
+dataAdpater.UpdateCommand.Parameters.Add("@DCYXM", SqlDbType.Char, 30, "DCYXM");
+dataAdpater.UpdateCommand.Parameters.Add("@DCRQ", SqlDbType.Char, 14, "DCRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@DJKZJS", SqlDbType.Nvarchar, 500, "DJKZJS");
+dataAdpater.UpdateCommand.Parameters.Add("@CLYXM", SqlDbType.Char, 30, "CLYXM");
+dataAdpater.UpdateCommand.Parameters.Add("@CLRQ", SqlDbType.Char, 14, "CLRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@DJDCJGSHYJ", SqlDbType.Nvarchar, 500, "DJDCJGSHYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@SHRXM", SqlDbType.Char, 30, "SHRXM");
+dataAdpater.UpdateCommand.Parameters.Add("@SHRQ", SqlDbType.Char, 14, "SHRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@SHHG", SqlDbType.Bit, 1, "SHHG");
+dataAdpater.UpdateCommand.Parameters.Add("@FZMJ", SqlDbType.Float, 8, "FZMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@CSYJ", SqlDbType.Nvarchar, 500, "CSYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@CSSCR", SqlDbType.Char, 30, "CSSCR");
+dataAdpater.UpdateCommand.Parameters.Add("@CSRJ", SqlDbType.Char, 14, "CSRJ");
+dataAdpater.UpdateCommand.Parameters.Add("@CSRTDDJSGZH", SqlDbType.Char, 20, "CSRTDDJSGZH");
+dataAdpater.UpdateCommand.Parameters.Add("@CSHG", SqlDbType.Bit, 1, "CSHG");
+dataAdpater.UpdateCommand.Parameters.Add("@SHYJ", SqlDbType.Nvarchar, 500, "SHYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@SHFZR", SqlDbType.Char, 30, "SHFZR");
+dataAdpater.UpdateCommand.Parameters.Add("@SHRQ_SPB", SqlDbType.Char, 14, "SHRQ_SPB");
+dataAdpater.UpdateCommand.Parameters.Add("@SHRTDDJSGZH", SqlDbType.Char, 20, "SHRTDDJSGZH");
+dataAdpater.UpdateCommand.Parameters.Add("@SHTG", SqlDbType.Bit, 1, "SHTG");
+dataAdpater.UpdateCommand.Parameters.Add("@PZYJ", SqlDbType.Nvarchar, 500, "PZYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@PZR", SqlDbType.Char, 30, "PZR");
+dataAdpater.UpdateCommand.Parameters.Add("@PZRQ", SqlDbType.Char, 14, "PZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@PZTG", SqlDbType.Bit, 1, "PZTG");
+dataAdpater.UpdateCommand.Parameters.Add("@SPBH", SqlDbType.Char, 11, "SPBH");
+dataAdpater.UpdateCommand.Parameters.Add("@SPBBZ", SqlDbType.Nvarchar, 100, "SPBBZ");
+dataAdpater.UpdateCommand.Parameters.Add("@SBB_BH", SqlDbType.Char, 19, "SBB_BH");
+dataAdpater.UpdateCommand.Parameters.Add("@SBB_TBRQ", SqlDbType.Char, 14, "SBB_TBRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@JTRK", SqlDbType.Int, 4, "JTRK");
+dataAdpater.UpdateCommand.Parameters.Add("@RKJG", SqlDbType.Int, 4, "RKJG");
+dataAdpater.UpdateCommand.Parameters.Add("@YYLFJS", SqlDbType.Int, 4, "YYLFJS");
+dataAdpater.UpdateCommand.Parameters.Add("@YYLFMJ", SqlDbType.Float, 8, "YYLFMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@YYPFJS", SqlDbType.Int, 4, "YYPFJS");
+dataAdpater.UpdateCommand.Parameters.Add("@YYPFMJ", SqlDbType.Float, 8, "YYPFMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@LJLFJS", SqlDbType.Int, 4, "LJLFJS");
+dataAdpater.UpdateCommand.Parameters.Add("@LJLFMJ", SqlDbType.Float, 8, "LJLFMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@LJPFJS", SqlDbType.Int, 4, "LJPFJS");
+dataAdpater.UpdateCommand.Parameters.Add("@LJPFMJ", SqlDbType.Float, 8, "LJPFMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@STMJ", SqlDbType.Float, 8, "STMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@HDMJ", SqlDbType.Float, 8, "HDMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@CDMJ", SqlDbType.Float, 8, "CDMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@YZJDMJ", SqlDbType.Float, 8, "YZJDMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@KXDMJ", SqlDbType.Float, 8, "KXDMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@HSMJ", SqlDbType.Float, 8, "HSMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@CMZYJ", SqlDbType.Nvarchar, 500, "CMZYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@ZZXM", SqlDbType.Char, 30, "ZZXM");
+dataAdpater.UpdateCommand.Parameters.Add("@CMZQZRQ", SqlDbType.Char, 14, "CMZQZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@CWHYJ", SqlDbType.Nvarchar, 500, "CWHYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@ZRXM", SqlDbType.Char, 30, "ZRXM");
+dataAdpater.UpdateCommand.Parameters.Add("@CWHQZRQ", SqlDbType.Char, 14, "CWHQZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@XCKCYJ", SqlDbType.Nvarchar, 500, "XCKCYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@KCR", SqlDbType.Char, 30, "KCR");
+dataAdpater.UpdateCommand.Parameters.Add("@KCRQ", SqlDbType.Char, 14, "KCRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZGHBMYJ", SqlDbType.Nvarchar, 500, "XZGHBMYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZGHBMFZR", SqlDbType.Char, 30, "XZGHBMFZR");
+dataAdpater.UpdateCommand.Parameters.Add("@XZGHBMQZRQ", SqlDbType.Char, 14, "XZGHBMQZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZJWGHYJ", SqlDbType.Nvarchar, 500, "XZJWGHYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZJWFZR", SqlDbType.Char, 30, "XZJWFZR");
+dataAdpater.UpdateCommand.Parameters.Add("@XZJWQZRQ", SqlDbType.Char, 14, "XZJWQZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZZFSPYJ", SqlDbType.Nvarchar, 500, "XZZFSPYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZZFSPRQ", SqlDbType.Char, 14, "XZZFSPRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@XGTBMSCYJ", SqlDbType.Nvarchar, 500, "XGTBMSCYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@XGTBMSCR", SqlDbType.Char, 30, "XGTBMSCR");
+dataAdpater.UpdateCommand.Parameters.Add("@XGTBMSCRQ", SqlDbType.Char, 14, "XGTBMSCRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZFSCYJ", SqlDbType.Nvarchar, 500, "XZFSCYJ");
+dataAdpater.UpdateCommand.Parameters.Add("@XZFSCRQ", SqlDbType.Char, 14, "XZFSCRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@SBBSFDY", SqlDbType.Bit, 1, "SBBSFDY");
+dataAdpater.UpdateCommand.Parameters.Add("@TDZ_JY", SqlDbType.Char, 10, "TDZ_JY");
+dataAdpater.UpdateCommand.Parameters.Add("@TDZ_LF", SqlDbType.Char, 10, "TDZ_LF");
+dataAdpater.UpdateCommand.Parameters.Add("@TDZ_BH", SqlDbType.Char, 11, "TDZ_BH");
+dataAdpater.UpdateCommand.Parameters.Add("@FZRQ", SqlDbType.Char, 14, "FZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@FZJS", SqlDbType.Nvarchar, 500, "FZJS");
+dataAdpater.UpdateCommand.Parameters.Add("@DYMJ", SqlDbType.Float, 8, "DYMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@FTMJ", SqlDbType.Float, 8, "FTMJ");
+dataAdpater.UpdateCommand.Parameters.Add("@ZZRQ", SqlDbType.Char, 14, "ZZRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@TDZSFDY", SqlDbType.Bit, 1, "TDZSFDY");
+dataAdpater.UpdateCommand.Parameters.Add("@GHKBH", SqlDbType.Char, 11, "GHKBH");
+dataAdpater.UpdateCommand.Parameters.Add("@GHKDYRQ", SqlDbType.Char, 14, "GHKDYRQ");
+dataAdpater.UpdateCommand.Parameters.Add("@GHKSFDY", SqlDbType.Bit, 1, "GHKSFDY");
+dataAdpater.UpdateCommand.Parameters.Add("@GHKJBR", SqlDbType.Char, 30, "GHKJBR");
+dataAdpater.UpdateCommand.Parameters.Add("@DJKSFDY", SqlDbType.Bit, 1, "DJKSFDY");
+dataAdpater.UpdateCommand.Parameters.Add("@TEXTBZ1", SqlDbType.Char, 60, "TEXTBZ1");
+dataAdpater.UpdateCommand.Parameters.Add("@TEXTBZ2", SqlDbType.Char, 60, "TEXTBZ2");
+dataAdpater.UpdateCommand.Parameters.Add("@TEXTBZ3", SqlDbType.Char, 60, "TEXTBZ3");
+dataAdpater.UpdateCommand.Parameters.Add("@FBZ1", SqlDbType.Float, 8, "FBZ1");
+dataAdpater.UpdateCommand.Parameters.Add("@FBZ2", SqlDbType.Float, 8, "FBZ2");
+dataAdpater.UpdateCommand.Parameters.Add("@FBZ3", SqlDbType.Float, 8, "FBZ3");
+dataAdpater.UpdateCommand.Parameters.Add("@IBZ1", SqlDbType.Int, 4, "IBZ1");
+dataAdpater.UpdateCommand.Parameters.Add("@IBZ2", SqlDbType.Int, 4, "IBZ2");
+dataAdpater.UpdateCommand.Parameters.Add("@IBZ3", SqlDbType.Int, 4, "IBZ3");
