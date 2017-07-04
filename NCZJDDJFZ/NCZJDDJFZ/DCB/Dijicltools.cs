@@ -690,7 +690,7 @@ namespace NCZJDDJFZ.DiJitools
         private void Dijicltools_Load(object sender, EventArgs e)
         {
             
-            string connectionString = Uitl.LJstring();//写连接字符串
+            string connectionString = Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DataDic";
 
             if (Tools.DataBasic.Create_Dic_table(connectionString))
@@ -703,7 +703,7 @@ namespace NCZJDDJFZ.DiJitools
                 System.Data.DataTable TB = dataset.Tables["DataDic"];
 
                 Tools.Uitl uitl = new Uitl();
-                uitl.DrowTree(this.treeView1, TB);//画节点树
+                uitl.DrawTree(this.treeView1, TB);//画节点树
                 connection.Close();
             }
         }

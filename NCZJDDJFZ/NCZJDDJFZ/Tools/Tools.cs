@@ -629,7 +629,7 @@ namespace NCZJDDJFZ.Tools
                                 row1.CreateCell(7).SetCellValue("宗地用途/房屋用途");// +
                                 row1.CreateCell(8).SetCellValue("备注");//留空
                                 #endregion
-                                string connectionString = Tools.Uitl.LJstring();
+                                string connectionString = Tools.Uitl.GetConnectionString();
                                 using (SqlConnection connection = new SqlConnection(connectionString))
                                 {
                                     connection.Open();
@@ -830,7 +830,7 @@ namespace NCZJDDJFZ.Tools
                                 row1.CreateCell(20).SetCellValue("设施农业用地");
                                 row1.CreateCell(21).SetCellValue("田坎");
                                 #endregion
-                                string connectionString = Tools.Uitl.LJstring();
+                                string connectionString = Tools.Uitl.GetConnectionString();
                                 using (SqlConnection connection = new SqlConnection(connectionString))
                                 {
                                     connection.Open();

@@ -899,7 +899,7 @@ namespace NCZJDDJFZ.DCB
         /// </summary>
         public void DrawDataTree()
         {
-            string connectionString = Uitl.LJstring();//写连接字符串
+            string connectionString = Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DataDic";
             if (Tools.DataBasic.Create_Dic_table(connectionString))
             {
@@ -911,7 +911,7 @@ namespace NCZJDDJFZ.DCB
                 System.Data.DataTable TB = dataset.Tables["DataDic"];
 
                 Tools.Uitl uitl = new Uitl();
-                uitl.DrowTree(this.treeView1, TB);//画节点树
+                uitl.DrawTree(this.treeView1, TB);//画节点树
                 connection.Close();
             }
         }
@@ -1005,7 +1005,7 @@ namespace NCZJDDJFZ.DCB
                 string XZQH = XZDM.Substring(0, 6);
                 label147.Text = JDH;
                 label150.Text = JFH;
-                string connectionString = Tools.Uitl.LJstring();//写连接字符串
+                string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
                 string selstring = "SELECT * FROM DCB where DJH like '" + XZDM + "%%%%%'";
                 if (Tools.DataBasic.Create_DCB_table(connectionString, "DCB", Tools.DataBasicString.Create_DCB))//如果”DCB“不存在则创建DCB
                 {
@@ -1093,7 +1093,7 @@ namespace NCZJDDJFZ.DCB
             ListBoxsx listBoxsx = (ListBoxsx)HZLB.Items[HZLB.SelectedIndex];
             string ndjh = listBoxsx.NHBH;
             ATT.DJH = ndjh;
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DCB where DJH = '" + ndjh + "'";
             string selstring_ZDD = "SELECT  *  FROM D_ZDD where DJH = '" + ndjh + "'";
             string selstring_ZDX = "SELECT  *  FROM D_ZDX where DJH = '" + ndjh + "'";
@@ -1652,7 +1652,7 @@ namespace NCZJDDJFZ.DCB
                 {
                     return;
                 }
-                string connectionString = Tools.Uitl.LJstring();//写连接字符串
+                string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -2427,7 +2427,7 @@ namespace NCZJDDJFZ.DCB
             }
             ListBoxsx listBoxsx = (ListBoxsx)HZLB.Items[HZLB.SelectedIndex];
             string ndjh = listBoxsx.NHBH;
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             string cxh = ndjh.Substring(0, 12);//不含宗地号的值
             #endregion
             #region 查找此街坊的所有界址点表值
@@ -2928,7 +2928,7 @@ namespace NCZJDDJFZ.DCB
             }
             int n = 0;
             n = HZLB.SelectedIndex;
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DCB where DJH = '" + ndjh + "'";
             string selstring_ZDD = "SELECT  *  FROM D_ZDD where DJH = '" + ndjh + "'";
             string selstring_ZDX = "SELECT  *  FROM D_ZDX where DJH = '" + ndjh + "'";
@@ -3461,11 +3461,13 @@ namespace NCZJDDJFZ.DCB
                 return;
             }
             #endregion
+
             if (ATT.DJH == "")
             {
                 MessageBox.Show(ts, "请选择宗地(双击)!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
+
             #region 获取完整路径
             string ZDT_Path2 = ZDT_Path1 + "\\" + ATT.DJH.Substring(6, 3) + "\\" + ATT.DJH.Substring(9, 3) + "\\";
             DirectoryInfo mydir2 = new DirectoryInfo(ZDT_Path2);
@@ -3481,6 +3483,7 @@ namespace NCZJDDJFZ.DCB
             ATT.ZDT_File = zdtfile;
             FileInfo fileInfo = new FileInfo(zdtfile);
             #endregion
+
             #region 生成宗地图
             if ((SCZDT.Checked && ZDT.Checked) || (SCZDT.Checked && ZDCT.Checked))//生成宗地图
             {
@@ -3730,6 +3733,7 @@ namespace NCZJDDJFZ.DCB
                         #endregion
 
                         #region 剪裁及注记
+
                         #region 创建范围线的面和线
                         ACDBPolyline fwx = new ACDBPolyline();//创建范围线
                         fwx.AddVertexAt(0, new Point2d(Xmin, Ymin), 0, 0, 0);
@@ -3740,6 +3744,7 @@ namespace NCZJDDJFZ.DCB
                         Topology.Geometries.Polygon Polygon_fwx = (Topology.Geometries.Polygon)Tools.CADTools.ConvertToPolygon(fwx);//范围线面
                         Topology.Geometries.LineString LineString_fwx = (Topology.Geometries.LineString)Tools.CADTools.ConvertToLineString(fwx);//范围线线
                         #endregion
+
                         #region 再次获取宗地的所有对象、定义剪裁最小删除面积和最小删除长度
                         double zxscmj = 6.25 * ATT.BLCH / 1000.0;//最小删除面积
                         double zxsccd = 2.0 * ATT.BLCH / 1000.0;//最小删除长度
@@ -3751,10 +3756,12 @@ namespace NCZJDDJFZ.DCB
                         }
                         ObjectId[] objectId2 = SS2.GetObjectIds();
                         #endregion
+
                         ObjectId zt2 = Tools.CADTools.AddNewTextStyle("宋体", "宋体", 1, 0, false);
                         for (int i = 0; i < objectId2.Length; i++)
                         {
                             Entity entity = (Entity)trans.GetObject(objectId2[i], ACDBOpenMode.ForWrite);
+
                             #region 修改文字和图块
                             if (entity.GetType().Name.ToLower() == "dbtext")
                             {
@@ -3790,6 +3797,7 @@ namespace NCZJDDJFZ.DCB
                                 continue;
                             }
                             #endregion
+
                             #region 属性检查
                             ResultBuffer resultBuffer = entity.XData;
                             if (resultBuffer == null)//无属性
@@ -3807,10 +3815,12 @@ namespace NCZJDDJFZ.DCB
                                 continue;
                             }
                             #endregion
+
                             if (entity.GetType().Name.ToLower() == "polyline")
                             {
                                 ACDBPolyline pline = (ACDBPolyline)entity;
                                 Topology.Geometries.LineString LineString_pline = (Topology.Geometries.LineString)Tools.CADTools.ConvertToLineString(pline);
+
                                 #region 删除不在范围内的polyline线
                                 if (!Polygon_fwx.Intersects(LineString_pline))//如果线不在范围类则删除
                                 {
@@ -3818,10 +3828,12 @@ namespace NCZJDDJFZ.DCB
                                     continue;
                                 }
                                 #endregion
+
                                 if (pline.Closed)
                                 {
                                     Topology.Geometries.Polygon Polygon_pline = (Topology.Geometries.Polygon)Tools.CADTools.ConvertToPolygon(pline);//宗地图上对象的面
                                     Point3d zjd = new Point3d(Polygon_pline.Centroid.X, Polygon_pline.Centroid.Y, 0);//注记点位置
+
                                     #region 找出被范围线裁切后剩下的区域的注记点位置
                                     double zdmj = -1;//最大面积 
                                     Topology.Geometries.Polygon zdm = null;//最大面积的块
@@ -3859,6 +3871,7 @@ namespace NCZJDDJFZ.DCB
                                         }
                                     }
                                     #endregion
+
                                     #region 注记宗地内权利人、宗地号、用途
                                     ObjectId zt = Tools.CADTools.AddNewTextStyle("黑体", "黑体", 1, 0, false);
                                     if (pline.Layer == "本宗界址线")
@@ -3892,7 +3905,7 @@ namespace NCZJDDJFZ.DCB
                                         string wzzdh = "";
                                         string dlbm = "";
                                         #region 查找邻权利人、完整地籍号、土地用途等
-                                        string connectionString = Tools.Uitl.LJstring();
+                                        string connectionString = Tools.Uitl.GetConnectionString();
                                         using (SqlConnection Lzconn = new SqlConnection())
                                         {
                                             Lzconn.ConnectionString = connectionString;
@@ -3936,6 +3949,7 @@ namespace NCZJDDJFZ.DCB
 
                                     }
                                     #endregion
+
                                     #region 注记房屋结构性质
                                     Tools.CADTools.AddNewLayer("房屋边长注记", "Continuous", 2);
                                     if (tv3[1].Value.ToString().Trim() == "FWSX")
@@ -4124,8 +4138,8 @@ namespace NCZJDDJFZ.DCB
                                         }
                                     }
                                     #endregion
-
                                 }
+
                                 #region 剪裁、修改线宽、切换围墙
 
                                 if (LineString_fwx.Intersects(LineString_pline))
@@ -4204,6 +4218,7 @@ namespace NCZJDDJFZ.DCB
                                 }
                                 #endregion
                             }
+
                             #region 剪裁直线
                             if (entity.GetType().Name.ToLower() == "line")
                             {
@@ -4404,12 +4419,12 @@ namespace NCZJDDJFZ.DCB
                             switch (CQ)
                             {
                                 case "阜阳":
-                                    if (pzmj < 0.00001)
-                                    {
-                                        MessageBox.Show("发证面积没有填写", "重要提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    }
-                                    zj2 = zj2 + "宗地面积:" + zdmj2.ToString("0.00") + "  " + "发证面积:" + pzmj.ToString("0.00") + "\r\n";
-                                    break;
+                                    //if (pzmj < 0.00001)
+                                    //{
+                                    //    MessageBox.Show("发证面积没有填写", "重要提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    //}
+                                    //zj2 = zj2 + "宗地面积:" + zdmj2.ToString("0.00") + "  " + "发证面积:" + pzmj.ToString("0.00") + "\r\n";
+                                    //break;
                                 case "默认":
                                 case "金寨":
                                 case "芜湖":
@@ -4596,47 +4611,49 @@ namespace NCZJDDJFZ.DCB
                         #endregion
 
                         #region 标注界址点
-                        System.Data.DataTable TB_ZDD = da_ZDD.Tables["D_ZDD"];
-                        //ObjectId zt2 = Tools.CADTools.AddNewTextStyle("宋体", "宋体", 1, 0, false);
-                        for (int J = 0; J < TB_ZDD.Rows.Count - 1; J++)
-                        {
-                            int N = J - 1;
-                            if (N < 0)
+                        
+                            System.Data.DataTable TB_ZDD = da_ZDD.Tables["D_ZDD"];
+                            //ObjectId zt2 = Tools.CADTools.AddNewTextStyle("宋体", "宋体", 1, 0, false);
+                            for (int J = 0; J < TB_ZDD.Rows.Count - 1; J++)
                             {
-                                N = TB_ZDD.Rows.Count - 2;
+                                int N = J - 1;
+                                if (N < 0)
+                                {
+                                    N = TB_ZDD.Rows.Count - 2;
+                                }
+                                DataRow ZDD_row1 = TB_ZDD.Rows[N];
+                                DataRow ZDD_row2 = TB_ZDD.Rows[J];
+                                DataRow ZDD_row3 = TB_ZDD.Rows[J + 1];
+                                Point3d point11 = new Point3d((double)ZDD_row1["X"], (double)ZDD_row1["Y"], 0);
+                                Point3d point12 = new Point3d((double)ZDD_row2["X"], (double)ZDD_row2["Y"], 0);
+                                Point3d point13 = new Point3d((double)ZDD_row3["X"], (double)ZDD_row3["Y"], 0);
+                                double jd1 = Tools.CADTools.GetAngle(point11, point12);
+                                double jd2 = Tools.CADTools.GetAngle(point13, point12);
+                                double Ang = jd1 - jd2;
+                                if (Ang < 0) { Ang = Ang + Math.PI * 2.0; }
+                                double JPFX = jd2 + Ang / 2.0 + Math.PI;
+                                string jzd;
+                                if (ZDCT.Checked)
+                                {
+                                    JZDXH.Checked = true;
+                                }
+                                if (JZDXH.Checked)
+                                {
+                                    jzd = "J" + ZDD_row2["MBBSM"].ToString().Trim();
+                                }
+                                else
+                                {
+                                    jzd = "J" + ZDD_row2["JZDH"].ToString().Trim();
+                                }
+                                double xwjl = 3.0 * ATT.BLCH / 1000.0;//界址点号离开界址点距离
+                                if (jzd.Length <= 3) { xwjl = 2.5 * ATT.BLCH / 1000.0; }
+                                if (jzd.Length == 4) { xwjl = 3.0 * ATT.BLCH / 1000.0; }
+                                if (jzd.Length >= 5) { xwjl = 3.5 * ATT.BLCH / 1000.0; }
+                                Point3d crd = Tools.CADTools.GetNewPoint(point12, xwjl, JPFX);
+                                Tools.CADTools.AddNewLayer("界址点号", "Continuous", 2);
+                                scText(jzd, crd, ATT.BLCH * 2.0 / 1000.0, 2, TextHorizontalMode.TextCenter, TextVerticalMode.TextVerticalMid, "界址点号", zt2, 0.8, 0);
                             }
-                            DataRow ZDD_row1 = TB_ZDD.Rows[N];
-                            DataRow ZDD_row2 = TB_ZDD.Rows[J];
-                            DataRow ZDD_row3 = TB_ZDD.Rows[J + 1];
-                            Point3d point11 = new Point3d((double)ZDD_row1["X"], (double)ZDD_row1["Y"], 0);
-                            Point3d point12 = new Point3d((double)ZDD_row2["X"], (double)ZDD_row2["Y"], 0);
-                            Point3d point13 = new Point3d((double)ZDD_row3["X"], (double)ZDD_row3["Y"], 0);
-                            double jd1 = Tools.CADTools.GetAngle(point11, point12);
-                            double jd2 = Tools.CADTools.GetAngle(point13, point12);
-                            double Ang = jd1 - jd2;
-                            if (Ang < 0) { Ang = Ang + Math.PI * 2.0; }
-                            double JPFX = jd2 + Ang / 2.0 + Math.PI;
-                            string jzd;
-                            if (ZDCT.Checked)
-                            {
-                                JZDXH.Checked = true;
-                            }
-                            if (JZDXH.Checked)
-                            {
-                                jzd = "J" + ZDD_row2["MBBSM"].ToString().Trim();
-                            }
-                            else
-                            {
-                                jzd = "J" + ZDD_row2["JZDH"].ToString().Trim();
-                            }
-                            double xwjl = 3.0 * ATT.BLCH / 1000.0;//界址点号离开界址点距离
-                            if (jzd.Length <= 3) { xwjl = 2.5 * ATT.BLCH / 1000.0; }
-                            if (jzd.Length == 4) { xwjl = 3.0 * ATT.BLCH / 1000.0; }
-                            if (jzd.Length >= 5) { xwjl = 3.5 * ATT.BLCH / 1000.0; }
-                            Point3d crd = Tools.CADTools.GetNewPoint(point12, xwjl, JPFX);
-                            Tools.CADTools.AddNewLayer("界址点号", "Continuous", 2);
-                            scText(jzd, crd, ATT.BLCH * 2.0 / 1000.0, 2, TextHorizontalMode.TextCenter, TextVerticalMode.TextVerticalMid, "界址点号", zt2, 0.8, 0);
-                        }
+                       
                         #endregion
 
                         #region 标注距离
@@ -4655,7 +4672,7 @@ namespace NCZJDDJFZ.DCB
                                 DataRow ZDD_row2 = TB_ZDD.Rows[J];
                                 DataRow ZDD_row3 = TB_ZDD.Rows[J + 1];
                                 #region 在右下角注记
-                                if (YXJ.Checked)//在右下角注记
+                                if (YXJ.Checked && ZDT.Checked)//在右下角注记
                                 {
                                     string jzdh_q;
                                     string jzdh_z;
@@ -4864,6 +4881,7 @@ namespace NCZJDDJFZ.DCB
                 }
             }
             #endregion
+
             #region 修改图形
             if (XG.Checked)
             {
@@ -4915,6 +4933,7 @@ namespace NCZJDDJFZ.DCB
                 }
             }
             #endregion
+
             #region 生成分层分户图
             if (SCZDT.Checked && FCFHT.Checked)
             {
@@ -6547,7 +6566,7 @@ namespace NCZJDDJFZ.DCB
                 string JDH = XZDM.Substring(6, 3);
                 string JFH = XZDM.Substring(9, 3);
                 string XZQH = XZDM.Substring(0, 6);
-                string connectionString = Tools.Uitl.LJstring();//写连接字符串
+                string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
                 string selstring = "SELECT * FROM DCB where DJH like '" + XZDM + "%%%%%'";
                 if (Tools.DataBasic.Create_DCB_table(connectionString, "DCB", Tools.DataBasicString.Create_DCB))//如果”DCB“不存在则创建DCB
                 {
@@ -6756,7 +6775,7 @@ namespace NCZJDDJFZ.DCB
             string JDH = XZDM.Substring(6, 3);
             string JFH = XZDM.Substring(9, 3);
             string XZQH = XZDM.Substring(0, 6);
-            string connectionString = Tools.Uitl.LJstring();
+            string connectionString = Tools.Uitl.GetConnectionString();
             #endregion
             using (DocumentLock documentLock = AcadApplication.DocumentManager.MdiActiveDocument.LockDocument())//锁住文档以便进行写操作
             {
@@ -6879,7 +6898,7 @@ namespace NCZJDDJFZ.DCB
         /// </summary>
         public void X_DCB(int i)
         {
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -7877,14 +7896,14 @@ namespace NCZJDDJFZ.DCB
             }
         }
 
-        // 建房申请审批表  【宣城不用】
+        // 建房申请审批表 -【宣城不用】
         /// <summary>
         /// 建房申请审批表
         /// </summary>
         /// <param name="i"></param>
         public void X_JFSQSPB(int i)
         {
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
             int height = System.Windows.Forms.SystemInformation.WorkingArea.Height;
 
@@ -8059,7 +8078,7 @@ namespace NCZJDDJFZ.DCB
             }
         }
 
-        // 具结书结构    【宣城不用】
+        // 具结书结构 -【宣城不用】
         /// <summary>
         /// 具结书结构
         /// </summary>
@@ -8073,6 +8092,10 @@ namespace NCZJDDJFZ.DCB
             /// 房屋结构
             /// </summary>
             public string fwjg;
+            /// <summary>
+            /// 房屋功能
+            /// </summary>
+            public string fwgn;
             /// <summary>
             /// 层数
             /// </summary>
@@ -8091,7 +8114,7 @@ namespace NCZJDDJFZ.DCB
             public string jclf;
         }
 
-        // 具结承诺证明书  【宣城不用】
+        // 具结承诺证明书 -【宣城不用】
         /// <summary>
         /// 具结承诺证明书
         /// </summary>
@@ -8102,7 +8125,7 @@ namespace NCZJDDJFZ.DCB
             {
                 Write_FW_SX_to_LC();
             }
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -8285,7 +8308,227 @@ namespace NCZJDDJFZ.DCB
             }
         }
 
-        // 权属来源证明   【宣城不用】
+        // 申请书和具结承诺证明书 - 芜湖
+        /// <summary>
+        /// 申请书和具结承诺证明书
+        /// </summary>
+        /// <param name="i"></param>
+        public void X_SQSZMS_WH(int i)
+        {
+            if (fwsxjg.Count == 0)
+            {
+                Write_FW_SX_to_LC();
+            }
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
+            if (HZLB.SelectedIndex != -1)
+            {
+                int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
+                int height = System.Windows.Forms.SystemInformation.WorkingArea.Height;
+
+                ListBoxsx LIS = (ListBoxsx)HZLB.SelectedItems[i];
+                string XZDM = treeView1.SelectedNode.Tag.ToString();
+                ATT.DJH = XZDM + LIS.N0_Name.Substring(0, 5);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string selstring_DCB = "SELECT * FROM DCB WHERE (DJH = '" + ATT.DJH + "')";
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(selstring_DCB, connection);//连接数据库
+                    SqlDataReader reader = command.ExecuteReader();
+                    int ZCS = 0;//总层数
+                    double jzmj = 0;
+                    double jzzdmj = 0;
+                    while (reader.Read())
+                    {
+                        string wzdjh = reader["WZDJH"].ToString().Trim();
+
+                        #region 找出本宗地内所有楼层
+                        List<FWSXJG> TZLC = new List<FWSXJG>();//同宗所有栋楼层集合
+                        for (int j = 0; j < fwsxjg.Count; j++)//找出同宗所有楼层
+                        {
+                            if (fwsxjg[j].地籍号1 == ATT.DJH.Substring(6))//如果地籍号相同
+                            {
+
+                                TZLC.Add(fwsxjg[j]);
+                                jzmj = jzmj + fwsxjg[j].本层建筑面积29;
+                                if (fwsxjg[j].所在层数12 == "1")
+                                {
+                                    jzzdmj = jzzdmj + fwsxjg[j].本层建筑面积29;
+                                }
+                            }
+                        }
+                        ZCS = TZLC.Count;
+                        if (TZLC.Count <= 0)
+                        {
+                            break;
+                        }
+
+                        #region 对各层进行排序
+                        TZLC.Sort((x, y) =>//对各层进行排序
+                        {
+                            int dh_x = Convert.ToInt32(x.房屋幢号9) * 1000;
+                            int dh_y = Convert.ToInt32(y.房屋幢号9) * 1000;
+                            int cs_x = Convert.ToInt32(x.所在层数12);
+                            int cs_y = Convert.ToInt32(y.所在层数12);
+
+                            if (dh_x + cs_x > dh_y + cs_y)
+                            {
+                                return 1;
+                            }
+                            else if (dh_x + cs_x == dh_y + cs_y)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return -1;
+                            }
+                        });
+                        #endregion
+
+                        #endregion
+
+                        string flxfile1 = Tools.CADTools.GetReportsFolder() + "申请书与证明书-芜湖.flx";
+                        grid1.OpenFile(flxfile1);
+                        if (reader["TDZL"].ToString().Trim() == "")
+                        {
+                            grid1.Cell(5, 1).Text = "    本人兹有坐落于__________镇__________村__________组                宅基地和房屋一处。";
+                        }
+                        else
+                        {
+                            grid1.Cell(5, 1).Text = "    本人兹有坐落于" + reader["TDZL"].ToString().Trim() + "                宅基地和房屋一处。";//房地坐落
+                        }
+                        //权利人
+                        if (reader["QLR"].ToString().Trim() != "")                        
+                            grid1.Cell(11, 1).Text = reader["QLR"].ToString().Trim();
+                        //身份证号
+                        if (reader["KCR"].ToString().Trim() != "")
+                            grid1.Cell(11, 2).Text = reader["KCR"].ToString().Trim();
+                        //宗地面积
+                        double zdmj = (double)reader["ZDMJ"];
+                        grid1.Cell(11, 6).Text = zdmj.ToString("0.00");
+
+                        #region 循环写入各栋
+                        List<jjsjg> DSS = new List<jjsjg>();//每栋房信息集合
+                        int zdmjxh = 0;//面积最大的房屋所在序号
+                        double MaxArea = -1;//最大面积
+                        while (TZLC.Count > 0)
+                        {
+                            FWSXJG dic2 = TZLC[0];
+                            jjsjg JG = new jjsjg();
+                            #region 房屋结构
+                            string fwjg = dic2.房屋结构13.Trim();
+                            string jhjg = "";
+                            if (fwjg == "钢结构")
+                            {
+                                jhjg = "钢";
+                            }
+                            if (fwjg == "钢、钢筋混凝土结构")
+                            {
+                                jhjg = "钢、砼";
+                            }
+                            if (fwjg == "钢筋混凝土结构")
+                            {
+                                jhjg = "砼";
+                            }
+                            if (fwjg == "混合结构")
+                            {
+                                jhjg = "混";
+                            }
+                            if (fwjg == "砖木结构")
+                            {
+                                jhjg = "砖";
+                            }
+                            if (fwjg == "其他结构")
+                            {
+                                jhjg = "其他";
+                            }
+                            if (fwjg == "")
+                            {
+                                jhjg = "/";
+                            }
+                            #endregion
+                            JG.fwjg = jhjg;
+                            JG.fwmc = dic2.建筑物类型0;
+                            JG.fwgn = dic2.房屋功能17;
+                            JG.jclf = dic2.竣工时间14;
+                            JG.cs = dic2.总层数11;
+                            string zrcs = dic2.房屋幢号9.Trim();//自然幢
+                            double mj = 0;
+                            for (int m = 0; m < TZLC.Count; m++)// 
+                            {
+                                FWSXJG dic3 = TZLC[m];
+                                if (zrcs == dic3.房屋幢号9.Trim())
+                                {
+                                    mj = mj + dic3.本层建筑面积29;
+                                    TZLC.RemoveAt(m);
+                                    m--;
+                                }
+                            }
+                            JG.jzmj = mj;
+                            if (mj > MaxArea)
+                            {
+                                MaxArea = mj;
+                                zdmjxh = DSS.Count;
+                            }
+                            DSS.Add(JG);
+                        }
+                        jjsjg dic4 = DSS[zdmjxh];
+                        // 房屋名称
+                        //grid1.Cell(21, 1).Text = "主房";
+                        grid1.Cell(21, 1).Text = dic4.fwgn;
+                        // 房屋结构
+                        grid1.Cell(21, 2).Text = dic4.fwjg;
+                        // 层数
+                        grid1.Cell(21, 6).Text = dic4.cs;
+                        // 间数
+                        //grid1.Cell(21, 8).Text = dic4.js;
+                        // 建筑面积
+                        grid1.Cell(21, 10).Text = dic4.jzmj.ToString("0.00");
+                        // 建成年份
+                        grid1.Cell(21, 12).Text = dic4.jclf;
+                        // 取得方式
+                        //grid1.Cell(21, 14).Text = dic4.cs;
+                        DSS.RemoveAt(zdmjxh);
+                        for (int m = 0; m < DSS.Count; m++)//写各层的数据
+                        {
+                            jjsjg dic5 = DSS[m];
+                            //string fwmc2 = "副房";
+                            string fwmc2 = dic5.fwgn;
+                            if (dic5.fwmc != "房屋")
+                            {
+                                fwmc2 = dic5.fwmc;
+                            }
+                            grid1.Cell(m + 22, 1).Text = fwmc2;// 房屋名称
+                            grid1.Cell(m + 22, 2).Text = dic5.fwjg;// 房屋结构
+                            grid1.Cell(m + 22, 6).Text = dic5.cs;// 层数
+                            //grid1.Cell(m + 22, 8).Text = dic4.js;// 间数
+                            grid1.Cell(m + 22, 10).Text = dic5.jzmj.ToString("0.00");// 建筑面积
+                            grid1.Cell(m + 22, 12).Text = dic5.jclf;// 建成年份
+                            //grid1.Cell(m + 22, 14).Text = dic4.cs;// 取得方式
+                            if (m >= 8)
+                            {
+                                break;
+                            }
+                        }
+                        #endregion
+                        grid1.Cell(28, 10).Text = reader["QLR"].ToString().Trim();
+                        grid1.Cell(29, 10).Text = "20    年    月   日";
+                        if (SCYL.Checked)
+                        {
+                            grid1.PrintPreview(true, true, true, 1, 0, 0, width, height);
+                        }
+                        else
+                        {
+                            grid1.Print(1, 100, true);
+                        }
+                    }
+                    connection.Close();
+                    reader.Dispose();
+                }
+            }
+        }
+
+        // 权属来源证明 -【宣城不用】
         /// <summary>
         /// 权属来源证明
         /// </summary>
@@ -8296,7 +8539,7 @@ namespace NCZJDDJFZ.DCB
             {
                 Write_FW_SX_to_LC();
             }
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -8472,7 +8715,7 @@ namespace NCZJDDJFZ.DCB
             {
                 Write_FW_SX_to_LC();
             }
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -8620,7 +8863,7 @@ namespace NCZJDDJFZ.DCB
         /// </summary>
         public void X_ZBC(int i)
         {
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -8824,7 +9067,7 @@ namespace NCZJDDJFZ.DCB
                 string XZmc = treeView1.SelectedNode.FullPath;//土地坐落
                 string[] zl = XZmc.Split('\\');
                 XZmc = zl[3] + zl[4];
-                string connectionString = Tools.Uitl.LJstring();//写连接字符串
+                string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
                 string selstring = "SELECT * FROM DCB where DJH like '" + XZDM + "%%%%%'";
                 if (Tools.DataBasic.Create_DCB_table(connectionString, "DCB", Tools.DataBasicString.Create_DCB))//如果”DCB“不存在则创建DCB
                 {
@@ -8889,7 +9132,7 @@ namespace NCZJDDJFZ.DCB
                 Write_FW_SX_to_LC();
             }
             string apppath = Tools.CADTools.GetAppPath();
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -9405,7 +9648,7 @@ namespace NCZJDDJFZ.DCB
             }
             string apppath = Tools.CADTools.GetAppPath();
             // 连接字符串
-            string connectionString = Tools.Uitl.LJstring();
+            string connectionString = Tools.Uitl.GetConnectionString();
 
             if (HZLB.SelectedIndex != -1)
             {
@@ -10257,7 +10500,7 @@ namespace NCZJDDJFZ.DCB
             string ndjh = listBoxsx.NHBH;
             ATT.DJH = ndjh;
 
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DCB where DJH = '" + ATT.DJH + "'";
             DataSet da_ZD = new DataSet();//定义DataSet 
             SqlDataAdapter DP = new SqlDataAdapter();//初始化适配器
@@ -10302,7 +10545,7 @@ namespace NCZJDDJFZ.DCB
         /// </summary>
         public void X_DAFM(int i)
         {
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -10405,7 +10648,7 @@ namespace NCZJDDJFZ.DCB
             {
                 Write_FW_SX_to_LC();
             }
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -10789,7 +11032,7 @@ namespace NCZJDDJFZ.DCB
             {
                 Write_FW_SX_to_LC();
             }
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             if (HZLB.SelectedIndex != -1)
             {
                 int width = System.Windows.Forms.SystemInformation.WorkingArea.Width;
@@ -11658,7 +11901,7 @@ namespace NCZJDDJFZ.DCB
 
             arrerr.Clear();
             arrtext.Clear();
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             int xh = 0;
             string XZDM = treeView1.SelectedNode.Tag.ToString();
             List<string> ArrZDD = new List<string>();//数据库中的宗地号
@@ -12008,49 +12251,27 @@ namespace NCZJDDJFZ.DCB
                                     case "阜阳":
                                         #region 输出表格
                                         if (xmmc == "申请审批表")
-                                        {
                                             X_SQSBB(i);
-                                        }
                                         if (xmmc == "调查表")
-                                        {
                                             X_DCB(i);
-                                        }
                                         if (xmmc == "房屋调查表")
-                                        {
                                             X_FWDCCB(i);
-                                        }
                                         if (xmmc == "宗地草图")
-                                        {
                                             X_ZDCT(i, false);
-                                        }
                                         if (xmmc == "宗地图")
-                                        {
                                             X_ZDT(i, true);
-                                        }
                                         if (xmmc == "分层分户图")
-                                        {
                                             X_FCFHT(i, true);
-                                        }
                                         if (xmmc == "界址点坐标册")
-                                        {
                                             X_ZBC(i);
-                                        }
                                         if (xmmc == "权属来源证明")
-                                        {
                                             X_QSLYZM(i);
-                                        }
                                         if (xmmc == "具结承诺证明书")
-                                        {
                                             X_JJCLZMS(i);
-                                        }
                                         if (xmmc == "建房申请审批表")
-                                        {
                                             X_JFSQSPB(i);
-                                        }
                                         if (xmmc == "档案封面")
-                                        {// TODO:
-                                            X_DAFM(i);
-                                        }
+                                            X_DAFM(i);// TODO:阜阳的档案表格输出功能待编写
                                         #endregion
                                         break;
                                     case "金寨":
@@ -12134,9 +12355,9 @@ namespace NCZJDDJFZ.DCB
                                             X_QSLYZM_WH(i);
                                         }
 
-                                        if (xmmc == "申请书与证明书")//if (xmmc == "具结承诺证明书")
-                                        {// TODO:
-                                            X_JJCLZMS(i);
+                                        if (xmmc == "申请书与证明书")
+                                        {
+                                            X_SQSZMS_WH(i);
                                         }
 
                                         if (xmmc == "建房申请审批表")
@@ -12489,7 +12710,7 @@ namespace NCZJDDJFZ.DCB
             string JFH = XZDM.Substring(9, 3);
             string XZQH = XZDM.Substring(0, 6);
 
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             //arrerr.Clear();
             //int xh = 0;
             ArrayList arrJZD = new ArrayList();//界址点

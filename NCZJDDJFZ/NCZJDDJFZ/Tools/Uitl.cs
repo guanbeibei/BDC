@@ -84,7 +84,7 @@ namespace NCZJDDJFZ.Tools
         /// <param name="treeView"></param>
         /// <param name="array"></param>
         /// <returns></returns>
-        public bool DrowTree_XZC(TreeView treeView, ArrayList array)
+        public bool DrawTree_XZC(TreeView treeView, ArrayList array)
         {
             bool Iscg = true;//画树是否成功
             #region 检查是否有重号
@@ -301,7 +301,7 @@ namespace NCZJDDJFZ.Tools
         /// </summary>
         /// <param name="DS">DataTable表</param>
         /// <returns>是否成功</returns>
-        public bool DrowTree(TreeView treeView, System.Data.DataTable DS)
+        public bool DrawTree(TreeView treeView, System.Data.DataTable DS)
         {
             bool Iscg = true;//画树是否成功
             ArrayList array = new ArrayList();
@@ -513,9 +513,8 @@ namespace NCZJDDJFZ.Tools
         /// <summary>
         /// 连接字符串
         /// </summary>
-        /// <param name="TableName">表名</param>
-        /// <returns>连接字符串</returns>
-        public static string LJstring()
+        /// <returns>SQL Sever数据库连接字符串</returns>
+        public static string GetConnectionString()
         {
             //Tools.Read_Write_Reg rwr = new Tools.Read_Write_Reg();
             string YHMC = ReadWriteReg.read_reg("用户名称");

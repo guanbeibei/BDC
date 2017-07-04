@@ -15,7 +15,7 @@ namespace NCZJDDJFZ.DCB
 
         private void TDZS_Load(object sender, EventArgs e)
         {
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DCB where DJH = '" + ATT.DJH + "'";
             DataSet da_ZD = new DataSet();//定义DataSet 
             SqlDataAdapter DP = new SqlDataAdapter();//初始化适配器
@@ -119,7 +119,7 @@ namespace NCZJDDJFZ.DCB
 
         private void DY_Click(object sender, EventArgs e)
         {
-            string connectionString = Tools.Uitl.LJstring();//写连接字符串
+            string connectionString = Tools.Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DCB where DJH = '" + ATT.DJH + "'";
             DataSet da_ZD = new DataSet();//定义DataSet 
             SqlDataAdapter DP = new SqlDataAdapter();//初始化适配器

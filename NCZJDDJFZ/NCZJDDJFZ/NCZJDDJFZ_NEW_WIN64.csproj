@@ -41,13 +41,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>..\Output\new_win64\</OutputPath>
+    <OutputPath>..\Output\Debug\new_win64\</OutputPath>
     <Prefer32Bit>false</Prefer32Bit>
-    <DefineConstants>NEW;Win64</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NEW;Win64</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>..\Output\new_win64\</OutputPath>
+    <OutputPath>..\Output\Release\new_win64\</OutputPath>
     <Prefer32Bit>false</Prefer32Bit>
     <DefineConstants>NEW;Win64</DefineConstants>
   </PropertyGroup>
@@ -331,8 +331,8 @@
     <Compile Include="DCB\Dijicltools.Designer.cs">
       <DependentUpon>Dijicltools.cs</DependentUpon>
     </Compile>
-    <Compile Include="DOC\NT158APP_NEW.cs" />
-    <Compile Include="DOC\NT158APP_OLD.cs" />
+    <Compile Include="DOG\NT158APP_NEW.cs" />
+    <Compile Include="DOG\NT158APP_OLD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -72,7 +72,7 @@ namespace NCZJDDJFZ
                     fs.Close();
                     fs.Dispose();
                     Tools.Uitl uitl = new Uitl();
-                    uitl.DrowTree_XZC(this.treeView1, shx);//画节点树
+                    uitl.DrawTree_XZC(this.treeView1, shx);//画节点树
                 }
             }
             catch (System.Exception ex)
@@ -106,7 +106,7 @@ namespace NCZJDDJFZ
         {
             using (DocumentLock documentLock = AcadApplication.DocumentManager.MdiActiveDocument.LockDocument())//锁住文档以便进行写操作
             {
-                string connectionString = Uitl.LJstring();//写连接字符串
+                string connectionString = Uitl.GetConnectionString();//写连接字符串
                 string selstring = "SELECT * FROM DataDic";
 
                 if (Tools.DataBasic.Create_Dic_table(connectionString))
@@ -132,7 +132,7 @@ namespace NCZJDDJFZ
                         array.Add(xzdm + row[1].ToString().Trim());
                     }
                     #endregion
-                    uitl.DrowTree_XZC(this.treeView1, array);//画节点树
+                    uitl.DrawTree_XZC(this.treeView1, array);//画节点树
                     Adapter.Dispose();
                     connection.Close();
                 }
@@ -227,7 +227,7 @@ namespace NCZJDDJFZ
         private void button3_Click(object sender, EventArgs e)
         {
 
-            string connectionString = Uitl.LJstring();//写连接字符串
+            string connectionString = Uitl.GetConnectionString();//写连接字符串
             string selstring = "SELECT * FROM DataDic";
             SqlConnection Connection1 = new SqlConnection(connectionString);
             try

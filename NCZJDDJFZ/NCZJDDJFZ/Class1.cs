@@ -13,13 +13,10 @@ using Dog.NT158.OLD;
 using Dog.NT158.NEW;
 #endif
 
-
-
 namespace NCZJDDJFZ
 {
     public class Class1
     {
-
         public static void WritErr(ArrayList arrerr)
         {
             if (ps2.Visible == false)
@@ -46,9 +43,9 @@ namespace NCZJDDJFZ
             }
         }
 
-
         public static CWXX cwxx = new CWXX();
         public static PaletteSet ps2 = new PaletteSet("错误列表");
+
         [CommandMethod("TXCLB")]
         public void TXCL()
         {
@@ -87,7 +84,6 @@ namespace NCZJDDJFZ
 
 #endif
         }
-
 
         // 系统设置
         [CommandMethod("XTSZB")]

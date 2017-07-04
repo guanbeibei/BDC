@@ -53,7 +53,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Output\new_win32\</OutputPath>
+    <OutputPath>..\Output\Debug\new_win32\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NEW;Win32</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -70,7 +70,7 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>..\Output\new_win32\</OutputPath>
+    <OutputPath>..\Output\Release\new_win32\</OutputPath>
     <DefineConstants>TRACE;NEW;Win32</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -119,8 +119,9 @@
     <DefineConstants>NEW;Win32</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_New_Win64|x86'">
-    <OutputPath>..\Output\new_win32\</OutputPath>
-    <DefineConstants>NEW;Win32</DefineConstants>
+    <OutputPath>..\Output\Debug\new_win32\</OutputPath>
+    <DefineConstants>DEBUG;NEW;Win32</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="acdbmgd, Version=18.2.0.0, Culture=neutral, processorArchitecture=x86">
@@ -328,8 +329,8 @@
     <Compile Include="DCB\Dijicltools.Designer.cs">
       <DependentUpon>Dijicltools.cs</DependentUpon>
     </Compile>
-    <Compile Include="DOC\NT158APP_NEW.cs" />
-    <Compile Include="DOC\NT158APP_OLD.cs" />
+    <Compile Include="DOG\NT158APP_NEW.cs" />
+    <Compile Include="DOG\NT158APP_OLD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
